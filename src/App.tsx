@@ -3,10 +3,10 @@ import { Button } from "antd";
 
 function App() {
   return (
-    <>
-      <h2 className="  text-center text-red-500">admin panel</h2>
-      <Button>secondary</Button>
-    </>
+    <div className="background h-screen">
+      <h2 className="text-center ">admin panel</h2>
+      <Button className="text-white">secondary</Button>
+    </div>
   );
 }
 

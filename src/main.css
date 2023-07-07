@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .background {
+    @apply bg-[#e2e8f0] dark:bg-[#0f172a];
+  }
+
+  .background-on {
+    @apply bg-[#e2e8f0] dark:bg-[#47557f];
+  }
+
+  .surface {
+    @apply bg-[#f1f5f9]  text-[#47557f] dark:bg-[#141e33];
+  }
+
+  .surface-on {
+    @apply bg-[#475580] dark:bg-[#94a3b8];
+  }
+
+  .primary {
+    @apply bg-[#684a5c] dark:bg-[#5b21b6];
+  }
+
+  .Primary-on {
+    @apply bg-[#b6d529] dark:bg-[#eeecfc];
+  }
+
+  .secondary {
+    @apply bg-[#5b21b6] dark:bg-[#5b21b6];
+  }
+
+  .secondary-on {
+    @apply bg-[#eeecfc] dark:bg-[#eeecfc];
+  }
+}
