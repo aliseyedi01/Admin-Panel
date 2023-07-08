@@ -23,11 +23,11 @@ const Sidebar = () => {
       <div className="w-full px-2">
         {Pages.map((page) => (
           <Link
+            key={page.id}
             to={page.name.toLowerCase()}
             className="flex w-full items-center justify-center gap-2 no-underline"
           >
             <Button
-              key={page.id}
               type="primary"
               className="my-[1px] flex h-8 w-full items-center gap-2 bg-blue-500"
             >
