@@ -12,11 +12,11 @@ interface Page {
 const Pages: Page[] = [
   { id: 1, name: "Dashboard", icon: <FaUserAlt /> },
   { id: 2, name: "User", icon: <FaPoll /> },
-  { id: 3, name: "Product", icon: <FaShoppingCart /> },
+  { id: 3, name: "Products", icon: <FaShoppingCart /> },
   { id: 4, name: "Blog", icon: <FaBloggerB /> },
 ];
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   return (
     <div className="surface flex h-full w-[20%] flex-col items-center gap-4 py-4">
       <h2 className="self-center">Admin Panel</h2>
