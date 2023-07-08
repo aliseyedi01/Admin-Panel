@@ -1,11 +1,11 @@
 import "./App.css";
-import { Button } from "antd";
+
+import { Sidebar } from "./Components";
 
 function App() {
   return (
-    <div className="background h-screen">
-      <h2 className="text-center ">admin panel</h2>
-      <Button className="text-white">secondary</Button>
+    <div className="background h-screen w-full">
+      <Sidebar />
     </div>
   );
 }

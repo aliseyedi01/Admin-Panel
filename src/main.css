@@ -12,7 +12,7 @@
   }
 
   .surface {
-    @apply bg-[#f1f5f9]  text-[#47557f] dark:bg-[#141e33];
+    @apply bg-[#f1f5f9]  text-[#47557f]  dark:bg-[#141e33];
   }
 
   .surface-on {
