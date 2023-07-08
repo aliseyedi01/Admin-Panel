@@ -1,16 +1,19 @@
 import React from "react";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
+import { FaUserAlt, FaPoll, FaShoppingCart, FaBloggerB } from "react-icons/fa";
 
 interface Page {
   id: number;
   name: string;
+  icon: any;
 }
 
 const Pages: Page[] = [
-  { id: 1, name: "Dashboard" },
-  { id: 2, name: "User" },
-  { id: 3, name: "Product" },
-  { id: 4, name: "Blog" },
+  { id: 1, name: "Dashboard", icon: <FaUserAlt /> },
+  { id: 2, name: "User", icon: <FaPoll /> },
+  { id: 3, name: "Product", icon: <FaShoppingCart /> },
+  { id: 4, name: "Blog", icon: <FaBloggerB /> },
 ];
 
 const Sidebar: React.FC = () => {
@@ -19,9 +22,18 @@ const Sidebar: React.FC = () => {
       <h2 className="self-center">Admin Panel</h2>
       <div className="w-full px-2">
         {Pages.map((page) => (
-          <Button key={page.id} type="primary" className=" my-[1px] h-8 w-full bg-blue-500   ">
-            {page.name}
-          </Button>
+          <Link
+            to={page.name.toLowerCase()}
+            className="flex w-full items-center justify-center gap-2 no-underline"
+          >
+            <Button
+              key={page.id}
+              type="primary"
+              className="my-[1px] flex h-8 w-full items-center gap-2 bg-blue-500"
+            >
+              {page.icon} {page.name}
+            </Button>
+          </Link>
         ))}
       </div>
     </div>

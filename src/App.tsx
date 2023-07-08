@@ -1,11 +1,12 @@
 import "./App.css";
 
-import { Sidebar } from "./Components";
+import { MainSection, Sidebar } from "./Components";
 
 function App() {
   return (
-    <div className="background h-screen w-full">
+    <div className="background flex h-screen w-full">
       <Sidebar />
+      <MainSection />
     </div>
   );
 }
