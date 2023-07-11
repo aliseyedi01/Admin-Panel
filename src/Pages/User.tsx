@@ -1,6 +1,7 @@
 import React from "react";
 import { Space, Table, Avatar, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
+import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 
 interface DataType {
   key: string;
@@ -52,8 +53,12 @@ const columns: ColumnsType<DataType> = [
     key: "action",
     render: () => (
       <Space size="middle">
-        <a>Edit</a>
-        <a>Delete</a>
+        <a>
+          <FaUserEdit className="text-lg text-indigo-800" />
+        </a>
+        <a>
+          <FaUserMinus className="text-lg text-red-600" />
+        </a>
       </Space>
     ),
   },
