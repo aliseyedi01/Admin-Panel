@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // ant design
-import { Space, Table, Avatar, Tag, Tooltip, Modal } from "antd";
+import { Space, Table, Avatar, Tag, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
 // icons design
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
@@ -8,23 +8,27 @@ import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 import { remove } from "@/store/slice/userSlice";
+import ConfirmModal from "@/Components/Modal/ConfirmModal";
 
 const User: React.FC = () => {
-  const user = useSelector((state) => state.user);
+  // redux
+  const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  // remove modal
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
   const [selectedUserId, setSelectedUserId] = useState("");
   const [selectedUserName, setSelectedUserName] = useState("");
 
+  // show modal for remove user
   const handleRemoveUser = (userId: string, userName: string) => {
     setOpen(true);
     setModalText(`are you sure to remove ${selectedUserName} ?`);
     setSelectedUserId(userId);
     setSelectedUserName(userName);
   };
-
+  // confirm to remove user
   const handleOk = () => {
     setModalText(`Permanently Removing  : ${selectedUserName}`);
     setConfirmLoading(true);
@@ -34,7 +38,7 @@ const User: React.FC = () => {
       setConfirmLoading(false);
     }, 3000);
   };
-
+  // column of table
   const columns: ColumnsType<DataType> = [
     {
       title: "Avatar",
@@ -94,21 +98,20 @@ const User: React.FC = () => {
     <div className="p-5">
       <Table
         columns={columns}
-        dataSource={user}
+        dataSource={users}
         pagination={{
           pageSize: 5,
         }}
         className="!dark:text-white dark:bg-slate-700"
       />
-      <Modal
+      <ConfirmModal
         title="Remove User"
         open={open}
-        onOk={handleOk}
+        onConfirm={handleOk}
         confirmLoading={confirmLoading}
         onCancel={() => setOpen(false)}
-      >
-        <p className="text-base">{modalText}</p>
-      </Modal>
+        modalText={modalText}
+      />
     </div>
   );
 };
