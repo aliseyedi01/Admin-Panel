@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 @layer components {
   .background {
     @apply bg-[#e2e8f0] dark:bg-[#0f172a];

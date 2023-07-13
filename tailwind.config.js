@@ -6,4 +6,7 @@ export default {
     extend: {},
   },
   plugins: [require("prettier-plugin-tailwindcss")],
+  corePlugins: {
+    preflight: false,
+  },
 };
