@@ -1,4 +1,4 @@
-import { Blog, Dashboard, NotFound, Products, User } from "@/Pages";
+import { Blog, Dashboard, NotFound, Products, User, UserSingle } from "@/Pages";
 
 import { Route, Routes } from "react-router-dom";
 import { Header } from "..";
@@ -11,6 +11,7 @@ function MainSection() {
         <Route path="/*" element={<NotFound />} />
         <Route path="/products" element={<Products />} />
         <Route path="user" element={<User />} />
+        <Route path="/user/:userId" element={<UserSingle />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>

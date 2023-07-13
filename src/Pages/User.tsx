@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // ant design
 import { Space, Table, Avatar, Tag, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -10,6 +10,7 @@ import { useSelector } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
+import { Link } from "react-router-dom";
 
 const User: React.FC = () => {
   // redux
@@ -19,6 +20,13 @@ const User: React.FC = () => {
   const handleRemoveUser = (user: DataType) => {
     setUserRemoved(user);
   };
+  // Edit user
+  // const [userEdit, setUserEdit] = useState<DataType | null>(null);
+  // const handleEditUser = (user: DataType) => {
+
+  //   setUserEdit(user);
+  //   console.log(userEdit);
+  // };
 
   // column of table
   const columns: ColumnsType<DataType> = [
@@ -62,9 +70,9 @@ const User: React.FC = () => {
       render: (_, user) => (
         <Space size="middle">
           <Tooltip title="Edit User">
-            <a>
+            <Link to={`/user/${user.key}`}>
               <FaUserEdit className="text-lg text-indigo-800 dark:text-indigo-500" />
-            </a>
+            </Link>
           </Tooltip>
           <Tooltip title="Remove User">
             <a onClick={() => handleRemoveUser(user)}>
