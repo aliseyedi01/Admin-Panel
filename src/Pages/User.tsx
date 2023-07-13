@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 // ant design
-import { Space, Table, Avatar, Tag, Tooltip } from "antd";
+import { Space, Table, Avatar, Tag, Tooltip, Modal } from "antd";
 import type { ColumnsType } from "antd/es/table";
 // icons design
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 // state management
-import { useSelector } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
+import { remove } from "@/store/slice/userSlice";
 
 const User: React.FC = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [modalText, setModalText] = useState("Content of the modal");
+  const [selectedUserId, setSelectedUserId] = useState("");
+  const [selectedUserName, setSelectedUserName] = useState("");
+
+  const handleRemoveUser = (userId: string, userName: string) => {
+    setOpen(true);
+    setModalText(`are you sure to remove ${selectedUserName} ?`);
+    setSelectedUserId(userId);
+    setSelectedUserName(userName);
+  };
+
+  const handleOk = () => {
+    setModalText(`Permanently Removing  : ${selectedUserName}`);
+    setConfirmLoading(true);
+    setTimeout(() => {
+      dispatch(remove(selectedUserId));
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 3000);
+  };
 
   const columns: ColumnsType<DataType> = [
     {
@@ -57,7 +81,7 @@ const User: React.FC = () => {
             </a>
           </Tooltip>
           <Tooltip title="Remove User">
-            <a>
+            <a onClick={() => handleRemoveUser(user.key, user.name)}>
               <FaUserMinus className="text-lg text-red-600" />
             </a>
           </Tooltip>
@@ -76,6 +100,15 @@ const User: React.FC = () => {
         }}
         className="!dark:text-white dark:bg-slate-700"
       />
+      <Modal
+        title="Remove User"
+        open={open}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={() => setOpen(false)}
+      >
+        <p className="text-base">{modalText}</p>
+      </Modal>
     </div>
   );
 };
