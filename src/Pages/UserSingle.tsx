@@ -48,7 +48,7 @@ const UserSingle: React.FC = () => {
     dispatch(edit(updatedUser));
     messageApi.open({
       type: "success",
-      content: "User edited successfully",
+      content: `${value.user.name} edited successfully`,
     });
   };
 
