@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-// ant design
+// antd
 import { Space, Table, Avatar, Tag, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
-// icons design
+// icons
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
-// state management
+// redux
 import { useSelector } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 // modal
@@ -64,7 +64,7 @@ const User: React.FC = () => {
         <Space size="middle">
           <Tooltip title="Edit User">
             <Link to={`/user/${user.key}`}>
-              <FaUserEdit className="text-lg text-indigo-800 dark:text-indigo-500" />
+              <FaUserEdit className="text-lg text-indigo-800  dark:text-indigo-500" />
             </Link>
           </Tooltip>
           <Tooltip title="Remove User">

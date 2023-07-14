@@ -1,7 +1,15 @@
-import { useNavigate } from "react-router-dom";
-import { IoChevronBack } from "react-icons/io5";
+// react
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+// icon
+import { IoChevronBack } from "react-icons/io5";
+// antd
 import { Form, InputNumber, Tooltip, Input, Button, Select } from "antd";
+// redux
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { DataType } from "@/interface/user";
+import { edit } from "@/store/slice/userSlice";
 
 const layout = {
   labelCol: { span: 8 },
@@ -25,9 +33,20 @@ const validateMessages = {
 
 const UserSingle: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // get indent user for edit
+  const param = useParams();
+  const users = useSelector((state) => state.users);
+  const editUser = users.find((user: DataType) => user.key === param.userId);
+  // console.log(editUser);
+  const { name, email, age, role, status } = editUser;
+  // console.log(name, email, age, role, status);
 
-  const onFinish = (value: object) => {
-    console.log(value);
+  // handle submit form
+  const onFinish = (value: any) => {
+    const updatedUser = { key: param.userId, ...value.user };
+    // console.log(updatedUser);
+    dispatch(edit(updatedUser));
   };
 
   return (
@@ -50,8 +69,9 @@ const UserSingle: React.FC = () => {
         {/* Name User */}
         <Form.Item
           name={["user", "name"]}
-          label={<label className="text-red-900 dark:text-white ">Name</label>}
+          label={<label className="text-red-900  dark:text-white ">Name</label>}
           rules={[{ required: true }]}
+          initialValue={name}
         >
           <Input />
         </Form.Item>
@@ -60,6 +80,7 @@ const UserSingle: React.FC = () => {
           name={["user", "email"]}
           label={<label className="text-red-900 dark:text-white ">Email</label>}
           rules={[{ required: true, type: "email" }]}
+          initialValue={email}
         >
           <Input />
         </Form.Item>
@@ -68,6 +89,7 @@ const UserSingle: React.FC = () => {
           name={["user", "age"]}
           label={<label className="text-red-900 dark:text-white ">Age</label>}
           rules={[{ required: true, type: "number", min: 0, max: 99 }]}
+          initialValue={age}
         >
           <InputNumber />
         </Form.Item>
@@ -76,6 +98,7 @@ const UserSingle: React.FC = () => {
           name={["user", "role"]}
           label={<label className="text-red-900 dark:text-white ">Role</label>}
           hasFeedback
+          initialValue={role}
           rules={[{ required: true, message: "Select Role User!" }]}
         >
           <Select placeholder="Select Role User">
@@ -89,6 +112,7 @@ const UserSingle: React.FC = () => {
           label={<label className="text-red-900 dark:text-white ">Status</label>}
           hasFeedback
           rules={[{ required: true, message: "Select Status User!" }]}
+          initialValue={status}
         >
           <Select placeholder="Select Status User">
             <Option value="active">Active</Option>
