@@ -1,14 +1,108 @@
-import { Button, Tooltip } from "antd";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
+import React from "react";
+import { Form, InputNumber, Tooltip, Input, Button, Select } from "antd";
 
-const UserSingle = () => {
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 16 },
+};
+
+const { Option } = Select;
+
+/* eslint-disable no-template-curly-in-string */
+const validateMessages = {
+  required: "${label} is required!",
+  types: {
+    email: "${label} is not a valid email!",
+    number: "${label} is not a valid number!",
+  },
+  number: {
+    range: "${label} must be between ${min} and ${max}",
+  },
+};
+/* eslint-enable no-template-curly-in-string */
+
+const UserSingle: React.FC = () => {
   const navigate = useNavigate();
+
+  const onFinish = (value: object) => {
+    console.log(value);
+  };
+
   return (
     <div className="p-5">
       <Tooltip title="Back">
-        <Button type="primary" icon={<IoChevronBack />} onClick={() => navigate(-1)} />
+        <Button
+          className="mb-5"
+          type="primary"
+          icon={<IoChevronBack />}
+          onClick={() => navigate(-1)}
+        />
       </Tooltip>
+      <Form
+        {...layout}
+        name="nest-messages"
+        onFinish={onFinish}
+        style={{ maxWidth: 600 }}
+        validateMessages={validateMessages}
+      >
+        {/* Name User */}
+        <Form.Item
+          name={["user", "name"]}
+          label={<label className="text-red-900 dark:text-white ">Name</label>}
+          rules={[{ required: true }]}
+        >
+          <Input />
+        </Form.Item>
+        {/* Email User */}
+        <Form.Item
+          name={["user", "email"]}
+          label={<label className="text-red-900 dark:text-white ">Email</label>}
+          rules={[{ required: true, type: "email" }]}
+        >
+          <Input />
+        </Form.Item>
+        {/* Age User */}
+        <Form.Item
+          name={["user", "age"]}
+          label={<label className="text-red-900 dark:text-white ">Age</label>}
+          rules={[{ required: true, type: "number", min: 0, max: 99 }]}
+        >
+          <InputNumber />
+        </Form.Item>
+        {/* Role User */}
+        <Form.Item
+          name={["user", "role"]}
+          label={<label className="text-red-900 dark:text-white ">Role</label>}
+          hasFeedback
+          rules={[{ required: true, message: "Select Role User!" }]}
+        >
+          <Select placeholder="Select Role User">
+            <Option value="front-end">Front-End</Option>
+            <Option value="back-end">Back-End</Option>
+          </Select>
+        </Form.Item>
+        {/* Status User */}
+        <Form.Item
+          name={["user", "status"]}
+          label={<label className="text-red-900 dark:text-white ">Status</label>}
+          hasFeedback
+          rules={[{ required: true, message: "Select Status User!" }]}
+        >
+          <Select placeholder="Select Status User">
+            <Option value="active">Active</Option>
+            <Option value="inactive">InActive</Option>
+            <Option value="banned">Banned</Option>
+          </Select>
+        </Form.Item>
+        {/* Submit Form */}
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 };

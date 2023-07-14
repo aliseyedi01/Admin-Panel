@@ -20,13 +20,6 @@ const User: React.FC = () => {
   const handleRemoveUser = (user: DataType) => {
     setUserRemoved(user);
   };
-  // Edit user
-  // const [userEdit, setUserEdit] = useState<DataType | null>(null);
-  // const handleEditUser = (user: DataType) => {
-
-  //   setUserEdit(user);
-  //   console.log(userEdit);
-  // };
 
   // column of table
   const columns: ColumnsType<DataType> = [
