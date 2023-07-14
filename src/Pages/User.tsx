@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 // antd
-import { Space, Table, Avatar, Tag, Tooltip } from "antd";
+import { Space, Table, Avatar, Tag, Tooltip, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
 // icons
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
@@ -10,7 +11,6 @@ import { useSelector } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
-import { Link } from "react-router-dom";
 
 const User: React.FC = () => {
   // redux
@@ -33,7 +33,7 @@ const User: React.FC = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (text) => <a>{text}</a>,
+      render: (text) => <div className="dark:text-white">{text}</div>,
     },
     {
       title: "Age",
@@ -79,13 +79,18 @@ const User: React.FC = () => {
 
   return (
     <div className="p-5">
+      <Link to="/user/newuser">
+        <Button className="mb-4" type="primary">
+          New User
+        </Button>
+      </Link>
       <Table
         columns={columns}
         dataSource={users}
         pagination={{
           pageSize: 5,
         }}
-        className="!dark:text-white dark:bg-slate-700"
+        className="!dark:text-white dark:bg-slate-400"
       />
       {userRemoved && <RemoveUserModal user={userRemoved} />}
     </div>

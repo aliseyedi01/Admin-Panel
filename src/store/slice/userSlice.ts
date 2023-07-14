@@ -82,16 +82,6 @@ const initialState: DataType[] = [
     avatar:
       "https://www.pngkit.com/png/detail/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png",
   },
-  {
-    key: "9",
-    name: "Your Name",
-    age: 27,
-    email: "your.name@example.com",
-    role: "Designer",
-    status: "active",
-    avatar:
-      "https://www.pngkit.com/png/detail/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png",
-  },
 ];
 
 const userSlice = createSlice({

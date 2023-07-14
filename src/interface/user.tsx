@@ -5,5 +5,5 @@ export interface DataType {
   email: string;
   role: string;
   status: string;
-  avatar: string;
+  avatar?: string;
 }
