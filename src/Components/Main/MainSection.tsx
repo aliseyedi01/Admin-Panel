@@ -5,7 +5,7 @@ import { Header } from "..";
 
 function MainSection() {
   return (
-    <div className="  h-full w-[80%] ">
+    <div className="  h-full w-full ">
       <Header />
       <Routes>
         <Route path="/*" element={<NotFound />} />
