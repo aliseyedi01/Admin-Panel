@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 // icon
 import { IoChevronBack } from "react-icons/io5";
 // antd
-import { Form, InputNumber, Tooltip, Input, Button, Select } from "antd";
+import { Form, InputNumber, Tooltip, Input, Button, Select, message } from "antd";
 // redux
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
@@ -34,23 +34,27 @@ const validateMessages = {
 const UserSingle: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // message
+  const [messageApi, contextHolder] = message.useMessage();
   // get indent user for edit
   const param = useParams();
   const users = useSelector((state) => state.users);
   const editUser = users.find((user: DataType) => user.key === param.userId);
-  // console.log(editUser);
   const { name, email, age, role, status } = editUser;
-  // console.log(name, email, age, role, status);
 
   // handle submit form
   const onFinish = (value: any) => {
     const updatedUser = { key: param.userId, ...value.user };
-    // console.log(updatedUser);
     dispatch(edit(updatedUser));
+    messageApi.open({
+      type: "success",
+      content: "User edited successfully",
+    });
   };
 
   return (
     <div className="p-5">
+      {contextHolder}
       <Tooltip title="Back">
         <Button
           className="mb-5"
