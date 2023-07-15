@@ -7,14 +7,14 @@ import type { ColumnsType } from "antd/es/table";
 // icons
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 // redux
-import { useSelector } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
+import { useAppSelector } from "@/interface/utils";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
 
 const User: React.FC = () => {
   // redux
-  const users = useSelector((state) => state.users);
+  const users = useAppSelector((state) => state.users);
   // remove user
   const [userRemoved, setUserRemoved] = useState<DataType | null>(null);
   const handleRemoveUser = (user: DataType) => {

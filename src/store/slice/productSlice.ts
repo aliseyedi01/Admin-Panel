@@ -1,46 +1,51 @@
+import { Gender, ProductState } from "@/interface/product";
 import { createSlice } from "@reduxjs/toolkit";
-
-enum Gender {
-  Men = "men",
-  Women = "women",
-  Kids = "kids",
-}
-
-interface Product {
-  key: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  sale: boolean;
-  new: boolean;
-  gender: Gender;
-  priceOff?: number;
-}
-
-type ProductState = Product[];
 
 const initialState: ProductState = [
   {
     key: "1",
-    name: "Product 1",
+    name: "Nike Waffle Racer Crater",
     price: 10.99,
     description: "This is the first product.",
     image: "https://minimal-kit-react.vercel.app/assets/images/products/product_10.jpg",
     sale: false,
     new: true,
-    gender: Gender.Men, // Set the gender category for Product 1
+    gender: Gender.Men,
+    remaining: 10, // Set the remaining number of Product 1
   },
   {
     key: "2",
-    name: "Product 2",
+    name: "Air Jordan XXXV PF",
     price: 19.99,
     description: "This is the second product.",
     image: "https://minimal-kit-react.vercel.app/assets/images/products/product_5.jpg",
+    sale: true,
+    new: false,
+    gender: Gender.Women,
+    priceOff: 15.99,
+    remaining: 5, // Set the remaining number of Product 2
+  },
+  {
+    key: "3",
+    name: "Nike Air Zoom Tempo NEXT%",
+    price: 39.99,
+    description: "This is the second product.",
+    image: "https://minimal-kit-react.vercel.app/assets/images/products/product_15.jpg",
     sale: false,
     new: false,
-    gender: Gender.Women, // Set the gender category for Product 2
-    priceOff: 15.99,
+    gender: Gender.Women,
+    remaining: 8, // Set the remaining number of Product 3
+  },
+  {
+    key: "4",
+    name: "Nike Air Force 1 07 LX",
+    price: 60.12,
+    description: "This is the second product.",
+    image: "https://minimal-kit-react.vercel.app/assets/images/products/product_13.jpg",
+    sale: false,
+    new: true,
+    gender: Gender.Women,
+    remaining: 3, // Set the remaining number of Product 4
   },
 ];
 
@@ -61,42 +66,6 @@ const productSlice = createSlice({
       return state.map((product) => {
         if (product.key === updatedProduct.key) {
           return { ...product, ...updatedProduct };
-        }
-        return product;
-      });
-    },
-    setSale: (state, action) => {
-      const { key, sale } = action.payload;
-      return state.map((product) => {
-        if (product.key === key) {
-          return { ...product, sale };
-        }
-        return product;
-      });
-    },
-    setNew: (state, action) => {
-      const { key, isNew } = action.payload;
-      return state.map((product) => {
-        if (product.key === key) {
-          return { ...product, new: isNew };
-        }
-        return product;
-      });
-    },
-    setGender: (state, action) => {
-      const { key, gender } = action.payload;
-      return state.map((product) => {
-        if (product.key === key) {
-          return { ...product, gender };
-        }
-        return product;
-      });
-    },
-    setPriceOff: (state, action) => {
-      const { key, priceOff } = action.payload;
-      return state.map((product) => {
-        if (product.key === key) {
-          return { ...product, priceOff };
         }
         return product;
       });
