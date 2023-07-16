@@ -10,7 +10,7 @@ interface NewItemProps {
 
 const NewItem: React.FC<NewItemProps> = ({ name, path }) => {
   return (
-    <Link to={path} className="no-underline">
+    <Link to={path} className="inline-block no-underline">
       <Button className="mb-4 flex items-center gap-1 font-bold " type="primary">
         <AiOutlinePlusCircle className="text-lg" /> {` New ${name}`}
       </Button>
