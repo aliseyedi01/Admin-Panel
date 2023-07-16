@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // antd
-import { Space, Table, Avatar, Tag, Tooltip, Button } from "antd";
+import { Space, Table, Avatar, Tag, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
 // icons
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { DataType } from "@/interface/user";
 import { useAppSelector } from "@/interface/utils";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
+import { NewItem } from "@/Components";
 
 const User: React.FC = () => {
   // redux
@@ -79,11 +80,7 @@ const User: React.FC = () => {
 
   return (
     <div className="p-5">
-      <Link to="/user/newuser">
-        <Button className="mb-4" type="primary">
-          New User
-        </Button>
-      </Link>
+      <NewItem name="User" path="/user/newuser" />
       <Table
         columns={columns}
         dataSource={users}

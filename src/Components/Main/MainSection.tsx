@@ -2,6 +2,7 @@ import {
   Blog,
   Dashboard,
   NotFound,
+  ProductMaker,
   ProductSingle,
   Products,
   User,
@@ -20,6 +21,7 @@ function MainSection() {
         <Route path="/*" element={<NotFound />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:ProductId" element={<ProductSingle />} />
+        <Route path="/product/newproduct" element={<ProductMaker />} />
         <Route path="user" element={<User />} />
         <Route path="/user/:userId" element={<UserSingle />} />
         <Route path="/user/newuser" element={<UserMaker />} />
