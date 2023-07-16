@@ -1,15 +1,15 @@
 // react
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// icon
-import { IoChevronBack } from "react-icons/io5";
+
 // antd
-import { Form, InputNumber, Tooltip, Input, Button, Select, message } from "antd";
+import { Form, InputNumber, Input, Button, Select, message } from "antd";
 // redux
-import { useDispatch, useSelector } from "react-redux/es/exports";
+import { useDispatch } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 import { edit } from "@/store/slice/userSlice";
+import { BackPage } from "@/Components";
+import { useAppSelector } from "@/interface/utils";
 
 const layout = {
   labelCol: { span: 8 },
@@ -32,14 +32,13 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const UserSingle: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   // message
   const [messageApi, contextHolder] = message.useMessage();
   // get indent user for edit
   const param = useParams();
-  const users = useSelector((state) => state.users);
-  const editUser = users.find((user: DataType) => user.key === param.userId);
+  const users = useAppSelector((state) => state.users);
+  const editUser = users.find((user: DataType) => user.key === param.userId)!;
   const { name, email, age, role, status } = editUser;
 
   // handle submit form
@@ -55,14 +54,7 @@ const UserSingle: React.FC = () => {
   return (
     <div className="p-5">
       {contextHolder}
-      <Tooltip title="Back">
-        <Button
-          className="mb-5"
-          type="primary"
-          icon={<IoChevronBack />}
-          onClick={() => navigate(-1)}
-        />
-      </Tooltip>
+      <BackPage />
       <Form
         {...layout}
         name="nest-messages"

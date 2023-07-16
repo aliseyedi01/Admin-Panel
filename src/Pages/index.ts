@@ -5,3 +5,4 @@ export { default as Dashboard } from "./Dashboard";
 export { default as NotFound } from "./NotFound";
 export { default as UserSingle } from "./UserSingle";
 export { default as UserMaker } from "./UserMaker";
+export { default as ProductSingle } from "./ProductSingle";

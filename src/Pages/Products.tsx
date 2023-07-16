@@ -9,6 +9,7 @@ import { IoBagRemove } from "react-icons/io5";
 // antd
 import { Button, Tooltip } from "antd";
 import RemoveProductModal from "@/Components/Modal/RemoveProductModal";
+import { Link } from "react-router-dom";
 
 const Products: React.FC = () => {
   const products = useAppSelector((state) => state.product);
@@ -48,7 +49,12 @@ const Products: React.FC = () => {
             </div>
           )}
           <div className="rounded-b-lg bg-slate-100 p-1 dark:bg-indigo-950">
-            <h3 className="truncate font-sans text-base">{product.name}</h3>
+            <Link
+              to={`/product/${product.key}`}
+              className="text-indigo-900 no-underline hover:text-indigo-500"
+            >
+              <h3 className="truncate font-sans text-base ">{product.name}</h3>
+            </Link>
             <div className="flex items-center justify-between">
               <p className="text-base font-bold">{product.remaining}</p>
               <div className="flex gap-1">
