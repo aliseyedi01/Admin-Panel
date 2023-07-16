@@ -1,20 +1,22 @@
 // react
-import React from "react";
+import React, { useState } from "react";
 // redux
-import { remove } from "@/store/slice/productSlice";
+
 import { Product } from "@/interface/product";
-import { useAppDispatch, useAppSelector } from "@/interface/utils";
+import { useAppSelector } from "@/interface/utils";
 // icon
 import { IoBagRemove } from "react-icons/io5";
 // antd
 import { Button, Tooltip } from "antd";
+import RemoveProductModal from "@/Components/Modal/RemoveProductModal";
 
 const Products: React.FC = () => {
   const products = useAppSelector((state) => state.product);
-  const dispatch = useAppDispatch();
 
-  const handleRemoveProduct = (key: string) => {
-    dispatch(remove(key));
+  // remove product
+  const [productRemoved, setProductRemoved] = useState<Product | null>(null);
+  const handleRemoveProduct = (product: Product) => {
+    setProductRemoved(product);
   };
 
   return (
@@ -29,7 +31,7 @@ const Products: React.FC = () => {
           <Tooltip title="Remove">
             <Button
               type="ghost"
-              onClick={() => handleRemoveProduct(product.key)}
+              onClick={() => handleRemoveProduct(product)}
               className="absolute left-3 top-4 hidden group-hover:block"
               icon={<IoBagRemove className="   text-lg text-red-600" />}
             />
@@ -57,6 +59,7 @@ const Products: React.FC = () => {
           </div>
         </div>
       ))}
+      {productRemoved && <RemoveProductModal product={productRemoved} />}
     </div>
   );
 };
