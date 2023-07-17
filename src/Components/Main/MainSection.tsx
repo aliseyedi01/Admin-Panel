@@ -15,7 +15,7 @@ import { Header } from "..";
 
 function MainSection() {
   return (
-    <div className="  h-full w-full ">
+    <div className="  h-screen w-full overflow-y-hidden  ">
       <Header />
       <Routes>
         <Route path="/*" element={<NotFound />} />

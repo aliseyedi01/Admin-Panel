@@ -14,10 +14,10 @@ import {
   FaDesktop,
 } from "react-icons/fa";
 // redux
-import { useDispatch, useSelector } from "react-redux";
-import { close } from "@/store/slice/menuSlice";
+import { close, toggle } from "@/store/slice/menuSlice";
 // hook
 import useHideClickOutside from "@/Hooks/useHideClickOutside";
+import { useAppDispatch, useAppSelector } from "@/interface/utils";
 
 interface Page {
   id: number;
@@ -36,11 +36,11 @@ const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   // redux
-  const menuOpen = useSelector((state) => state.menu.isOpenMenu);
+  const menuOpen = useAppSelector((state) => state.menu.isOpenMenu);
 
   // hidden menu in outSide clicked
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleHideSidebar = () => {
     dispatch(close());
   };
@@ -65,8 +65,9 @@ const Sidebar: React.FC = () => {
         <Button
           onClick={() => {
             setCollapsed(!collapsed);
+            dispatch(toggle());
           }}
-          className="absolute translate-x-4  self-end rounded-md border-2 border-sky-200 bg-transparent pb-7 text-lg dark:text-yellow-300 max-md:hidden"
+          className="absolute z-40 translate-x-4 self-end rounded-md border-2 border-sky-200 bg-transparent pb-7 text-lg dark:text-yellow-300 max-md:hidden"
           icon={!collapsed ? <FaChevronLeft /> : <FaChevronRight />}
         />
         <h2 className=" flex items-center gap-3 self-center font-sans text-base dark:text-white md:text-xl">

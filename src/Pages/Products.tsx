@@ -1,7 +1,6 @@
 // react
 import React, { useState } from "react";
 // redux
-
 import { Product } from "@/interface/product";
 import { useAppSelector } from "@/interface/utils";
 // icon
@@ -22,9 +21,9 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className=" hide-scrollbar h-full overflow-y-scroll p-5 pt-20">
       <NewItem name="Product" path="/product/newproduct" />
-      <div className="flex flex-wrap  dark:text-white">
+      <div className="flex h-full flex-wrap  dark:text-white">
         {products.map((product: Product) => (
           <div key={product.key} className=" group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
             <img
@@ -56,7 +55,9 @@ const Products: React.FC = () => {
                 to={`/product/${product.key}`}
                 className="text-indigo-900 no-underline hover:text-indigo-500"
               >
-                <h3 className="truncate font-sans text-base ">{product.name}</h3>
+                <h3 className="truncate font-sans text-base dark:text-indigo-500 ">
+                  {product.name}
+                </h3>
               </Link>
               <div className="flex items-center justify-between">
                 <p className="text-base font-bold">{product.remaining}</p>
