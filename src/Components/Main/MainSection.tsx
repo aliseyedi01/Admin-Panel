@@ -15,7 +15,7 @@ import { Header } from "..";
 
 function MainSection() {
   return (
-    <div className="  h-screen w-full overflow-y-hidden  ">
+    <main className="h-screen w-full overflow-y-hidden">
       <Header />
       <Routes>
         <Route path="/*" element={<NotFound />} />
@@ -28,7 +28,7 @@ function MainSection() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </div>
+    </main>
   );
 }
 

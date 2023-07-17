@@ -1,5 +1,11 @@
+import { PageLayout } from "@/Components";
+
 function Blog() {
-  return <div>Blog</div>;
+  return (
+    <PageLayout>
+      <p className="dark:text-white">Blog</p>
+    </PageLayout>
+  );
 }
 
 export default Blog;

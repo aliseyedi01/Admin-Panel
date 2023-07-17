@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div
+    <header
       className={`fixed right-0 top-0 z-20 h-16 w-full bg-slate-200 bg-opacity-20 backdrop-blur-lg transition-all duration-0 dark:bg-indigo-950/[0.2]  ${
         collapse ? "md:w-[calc(100vw-307px)]" : "md:w-[calc(100vw-70px)]"
       }`}
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
           <ChangeModeBtn />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

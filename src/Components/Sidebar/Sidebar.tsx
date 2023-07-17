@@ -56,7 +56,7 @@ const Sidebar: React.FC = () => {
         onClick={() => dispatch(close())}
       ></div>
       {/* sidebar */}
-      <div
+      <aside
         ref={sidebarRef}
         className={`surface flex h-full flex-col items-center   gap-4 py-4 transition-all duration-500   ${
           collapsed ? "w-20" : "w-96"
@@ -91,7 +91,7 @@ const Sidebar: React.FC = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </aside>
     </>
   );
 };

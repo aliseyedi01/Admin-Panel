@@ -14,7 +14,7 @@ import { DataType } from "@/interface/user";
 import { useAppSelector } from "@/interface/utils";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
-import { NewItem } from "@/Components";
+import { NewItem, PageLayout } from "@/Components";
 
 import Highlighter from "react-highlight-words";
 
@@ -223,7 +223,7 @@ const User: React.FC = () => {
   };
 
   return (
-    <div className="p-5">
+    <PageLayout>
       <NewItem name="User" path="/user/newuser" />
       <Table
         columns={columns}
@@ -235,7 +235,7 @@ const User: React.FC = () => {
         className="!dark:text-white dark:bg-slate-400"
       />
       {userRemoved && <RemoveUserModal user={userRemoved} />}
-    </div>
+    </PageLayout>
   );
 };
 
