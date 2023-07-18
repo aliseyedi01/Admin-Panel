@@ -1,5 +1,11 @@
+import { PageLayout } from "@/Components";
+
 function NotFound() {
-  return <div>NotFound</div>;
+  return (
+    <PageLayout>
+      <p className="dark:text-white">NotFound</p>
+    </PageLayout>
+  );
 }
 
 export default NotFound;

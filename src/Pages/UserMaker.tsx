@@ -8,6 +8,7 @@ import { Form, InputNumber, Tooltip, Input, Button, Select, message } from "antd
 // redux
 import { useDispatch } from "react-redux/es/exports";
 import { add } from "@/store/slice/userSlice";
+import { PageLayout } from "@/Components";
 
 const layout = {
   labelCol: { span: 8 },
@@ -46,7 +47,7 @@ const UserMaker: React.FC = () => {
   };
 
   return (
-    <div className="p-5">
+    <PageLayout>
       {contextHolder}
       <Tooltip title="Back">
         <Button
@@ -119,7 +120,7 @@ const UserMaker: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </PageLayout>
   );
 };
 

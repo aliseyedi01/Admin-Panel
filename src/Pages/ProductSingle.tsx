@@ -4,7 +4,7 @@ import { Form, InputNumber, Input, Button, Select, message } from "antd";
 import { useDispatch } from "react-redux/es/exports";
 import { Gender } from "@/interface/product";
 import { edit } from "@/store/slice/productSlice";
-import { BackPage } from "@/Components";
+import { BackPage, PageLayout } from "@/Components";
 import { useAppSelector } from "@/interface/utils";
 
 const layout = {
@@ -48,7 +48,7 @@ const ProductSingle: React.FC = () => {
   };
 
   return (
-    <div className="p-5">
+    <PageLayout>
       {contextHolder}
       <BackPage />
       <Form
@@ -124,7 +124,7 @@ const ProductSingle: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </PageLayout>
   );
 };
 
