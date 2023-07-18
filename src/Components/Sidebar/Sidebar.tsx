@@ -70,7 +70,7 @@ const Sidebar: React.FC = () => {
           className="absolute z-40 translate-x-4 self-end rounded-md border-2 border-sky-200 bg-transparent pb-7 text-lg dark:text-yellow-300 max-md:hidden"
           icon={!collapsed ? <FaChevronLeft /> : <FaChevronRight />}
         />
-        <h2 className=" flex items-center gap-3 self-center font-sans text-base dark:text-white md:text-xl">
+        <h2 className=" flex items-center gap-3 self-center font-Lemon text-base  dark:text-white md:text-xl">
           <FaDesktop className="text-2xl" /> {!collapsed ? " Admin Panel" : null}
         </h2>
 
@@ -83,10 +83,10 @@ const Sidebar: React.FC = () => {
             >
               <Button
                 type="primary"
-                className="my-[1px]  flex h-8 w-full items-center gap-3 bg-blue-500 "
+                className="my-[1px] flex h-8 w-full items-center gap-3 bg-blue-500 "
               >
-                <div className="translate-x-1">{page.icon}</div>{" "}
-                {!collapsed || menuOpen ? page.name : null}
+                <div className="translate-x-1">{page.icon}</div>
+                <div className="font-Montserrat">{!collapsed || menuOpen ? page.name : null}</div>
               </Button>
             </Link>
           ))}
