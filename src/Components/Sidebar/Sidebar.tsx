@@ -27,7 +27,7 @@ interface Page {
 
 const Pages: Page[] = [
   { id: 1, name: "Dashboard", icon: <FaUserAlt /> },
-  { id: 2, name: "User", icon: <FaPoll /> },
+  { id: 2, name: "Users", icon: <FaPoll /> },
   { id: 3, name: "Products", icon: <FaShoppingCart /> },
   { id: 4, name: "Blog", icon: <FaBloggerB /> },
 ];
