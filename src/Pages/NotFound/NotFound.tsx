@@ -1,11 +1,11 @@
 import { PageLayout } from "@/Components";
 
-function NotFound() {
+const NotFound: React.FC = () => {
   return (
     <PageLayout>
       <p className="dark:text-white">NotFound</p>
     </PageLayout>
   );
-}
+};
 
 export default NotFound;

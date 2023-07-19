@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "@/interface/utils";
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
   const collapse = useAppSelector((state) => state.menu.isCollapseMenu);
-  console.log(collapse);
+  // console.log(collapse);
   const handleMenuOpen = () => {
     dispatch(open());
   };

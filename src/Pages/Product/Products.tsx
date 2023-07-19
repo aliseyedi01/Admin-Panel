@@ -40,7 +40,6 @@ const Products: React.FC = () => {
                   icon={<IoBagRemove className="   text-lg text-red-600" />}
                 />
               </Tooltip>
-
               {product.new && (
                 <div className="absolute right-5 top-5 rounded-lg bg-blue-500 px-2 py-1 font-Ubuntu text-sm font-bold text-white md:text-base">
                   New
