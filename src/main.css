@@ -75,3 +75,7 @@ ant-table-cell,
 .ant-table-row {
   @apply dark:bg-slate-600 dark:text-white;
 }
+
+.svg-custom {
+  mask: url("/public/shape-avatar.svg") center center / contain no-repeat;
+}

@@ -61,7 +61,7 @@ const ProductSingle: React.FC = () => {
         {/* Name Product */}
         <Form.Item
           name={["product", "name"]}
-          label={<label className="text-red-900  dark:text-white ">Name</label>}
+          label={<label className="text-red-900 dark:text-white">Name</label>}
           rules={[{ required: true }]}
           initialValue={name}
         >
@@ -70,7 +70,7 @@ const ProductSingle: React.FC = () => {
         {/* Price Product */}
         <Form.Item
           name={["product", "price"]}
-          label={<label className="text-red-900 dark:text-white ">Price</label>}
+          label={<label className="text-red-900 dark:text-white">Price</label>}
           rules={[{ required: true, type: "number", min: 0, max: 9999 }]}
           initialValue={price}
         >
@@ -79,7 +79,7 @@ const ProductSingle: React.FC = () => {
         {/* Description Product */}
         <Form.Item
           name={["product", "description"]}
-          label={<label className="text-red-900 dark:text-white ">Description</label>}
+          label={<label className="text-red-900 dark:text-white">Description</label>}
           rules={[{ required: true }]}
           initialValue={description}
         >
@@ -88,7 +88,7 @@ const ProductSingle: React.FC = () => {
         {/* Image Product */}
         <Form.Item
           name={["product", "image"]}
-          label={<label className="text-red-900 dark:text-white ">Image</label>}
+          label={<label className="text-red-900 dark:text-white">Image</label>}
           rules={[{ required: true, type: "url" }]}
           initialValue={image}
         >
@@ -97,7 +97,7 @@ const ProductSingle: React.FC = () => {
         {/* Gender Product */}
         <Form.Item
           name={["product", "gender"]}
-          label={<label className="text-red-900 dark:text-white ">Gender</label>}
+          label={<label className="text-red-900 dark:text-white">Gender</label>}
           hasFeedback
           initialValue={gender}
           rules={[{ required: true, message: "Select Gender!" }]}
@@ -105,13 +105,13 @@ const ProductSingle: React.FC = () => {
           <Select placeholder="Select Gender">
             <Option value={Gender.Men}>Men</Option>
             <Option value={Gender.Women}>Women</Option>
-            <Option value={Gender.Kids}>Unisex</Option>
+            <Option value={Gender.Kids}>Kids</Option>
           </Select>
         </Form.Item>
         {/* Remaining Product */}
         <Form.Item
           name={["product", "remaining"]}
-          label={<label className="text-red-900 dark:text-white ">Remaining</label>}
+          label={<label className="text-red-900 dark:text-white">Remaining</label>}
           rules={[{ required: true, type: "number", min: 0, max: 999 }]}
           initialValue={remaining}
         >
