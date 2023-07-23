@@ -29,7 +29,7 @@ const Pages: Page[] = [
   { id: 1, name: "Dashboard", icon: <FaUserAlt /> },
   { id: 2, name: "Users", icon: <FaPoll /> },
   { id: 3, name: "Products", icon: <FaShoppingCart /> },
-  { id: 4, name: "Blog", icon: <FaBloggerB /> },
+  { id: 4, name: "Blogs", icon: <FaBloggerB /> },
 ];
 
 const Sidebar: React.FC = () => {

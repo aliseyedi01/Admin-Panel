@@ -3,7 +3,7 @@ export interface BlogType {
   name: string;
   coverImage: string;
   authorImage: string;
-  new: boolean;
+  newPublished: boolean;
   description: string;
   category: string;
   author: string;

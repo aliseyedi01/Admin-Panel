@@ -5,6 +5,7 @@ import { PageLayout } from "@/Components";
 // redux
 import { useAppSelector } from "@/interface/utils";
 import { BlogType } from "@/interface/blog";
+import { Link } from "react-router-dom";
 
 const Blog: React.FC = () => {
   const blogs = useAppSelector((state) => state.blog);
@@ -21,13 +22,18 @@ const Blog: React.FC = () => {
                 className="-mb-[5px] w-full rounded-t-lg"
               />
               <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
-                <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100"></span>
+                <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100 dark:bg-indigo-950"></span>
                 <img
-                  className="absolute -top-4 left-6 h-8 w-8 rounded-xl"
+                  className="absolute -top-4 left-6 h-8 w-8 rounded-full"
                   src={blog.authorImage}
                   alt={blog.author}
                 />
-                <p className="line-clamp-2 px-2 pt-7 font-Ubuntu">{blog.name}</p>
+                <Link
+                  to={`/blog/${blog.key}`}
+                  className="text-gray-900 no-underline dark:text-gray-400"
+                >
+                  <p className="line-clamp-2 px-2 pt-7 font-Ubuntu">{blog.name}</p>
+                </Link>
                 <div className="flex items-center justify-between px-2 py-2 font-Lilita text-base">
                   <p className="text-blue-700 dark:text-blue-500">{blog.datePublished}</p>
                   <p className="text-red-700 dark:text-red-400">{blog.category}</p>

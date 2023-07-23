@@ -1,11 +1,15 @@
+// react
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Form, InputNumber, Input, Button, Select, message } from "antd";
-import { useDispatch } from "react-redux/es/exports";
-import { Gender } from "@/interface/product";
-import { edit } from "@/store/slice/productSlice";
 import { BackPage, PageLayout } from "@/Components";
+// antd
+import { Form, InputNumber, Input, Button, Select, message } from "antd";
+// redux
+import { edit } from "@/store/slice/productSlice";
+import { useDispatch } from "react-redux/es/exports";
+// types
 import { useAppSelector } from "@/interface/utils";
+import { Gender } from "@/interface/product";
 
 const layout = {
   labelCol: { span: 8 },
@@ -58,7 +62,7 @@ const ProductSingle: React.FC = () => {
         style={{ maxWidth: 600 }}
         validateMessages={validateMessages}
       >
-        {/* Name Product */}
+        {/* Name */}
         <Form.Item
           name={["product", "name"]}
           label={<label className="text-red-900 dark:text-white">Name</label>}
@@ -67,7 +71,7 @@ const ProductSingle: React.FC = () => {
         >
           <Input />
         </Form.Item>
-        {/* Price Product */}
+        {/* Price */}
         <Form.Item
           name={["product", "price"]}
           label={<label className="text-red-900 dark:text-white">Price</label>}
@@ -76,7 +80,7 @@ const ProductSingle: React.FC = () => {
         >
           <InputNumber />
         </Form.Item>
-        {/* Description Product */}
+        {/* Description */}
         <Form.Item
           name={["product", "description"]}
           label={<label className="text-red-900 dark:text-white">Description</label>}
@@ -85,7 +89,7 @@ const ProductSingle: React.FC = () => {
         >
           <Input.TextArea />
         </Form.Item>
-        {/* Image Product */}
+        {/* Image */}
         <Form.Item
           name={["product", "image"]}
           label={<label className="text-red-900 dark:text-white">Image</label>}
@@ -94,7 +98,7 @@ const ProductSingle: React.FC = () => {
         >
           <Input />
         </Form.Item>
-        {/* Gender Product */}
+        {/* Gender */}
         <Form.Item
           name={["product", "gender"]}
           label={<label className="text-red-900 dark:text-white">Gender</label>}
@@ -108,7 +112,7 @@ const ProductSingle: React.FC = () => {
             <Option value={Gender.Kids}>Kids</Option>
           </Select>
         </Form.Item>
-        {/* Remaining Product */}
+        {/* Remaining */}
         <Form.Item
           name={["product", "remaining"]}
           label={<label className="text-red-900 dark:text-white">Remaining</label>}
