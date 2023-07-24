@@ -13,6 +13,7 @@ import {
 import { Route, Routes } from "react-router-dom";
 import { Header } from "..";
 import BlogSingle from "@/Pages/Blog/BlogSingle";
+import BlogMaker from "@/Pages/Blog/BlogMaker";
 
 function MainSection() {
   return (
@@ -31,6 +32,7 @@ function MainSection() {
         {/* Blog */}
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:blogId" element={<BlogSingle />} />
+        <Route path="/blog/newblog" element={<BlogMaker />} />
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>

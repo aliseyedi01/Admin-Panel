@@ -8,64 +8,65 @@ const PageLayout: React.FC<PropsWithChildren> = ({ children }) => {
 
   const users = useAppSelector((state) => state.users);
   const products = useAppSelector((state) => state.product);
+  const blogs = useAppSelector((state) => state.blog);
 
-  let pageTitle = "";
+  const getPageTitle = () => {
+    let pageTitle = "Page Not Found";
 
-  switch (pathSegments[1]) {
-    case "dashboard":
-      pageTitle = "DashBoard";
-      break;
-    case "users":
-      pageTitle = "Users";
-      break;
-    case "newuser":
-      pageTitle = "Make User";
-      break;
-    case "products":
-      pageTitle = "Products";
-      break;
-    case "product":
-      pageTitle = "Make Products";
-      break;
-    case "blog":
-      pageTitle = "Blog";
-      break;
-    default:
-      pageTitle = "Page Not Found";
-      break;
-  }
+    const segment1 = pathSegments[1];
+    const segment2 = pathSegments[2];
 
-  // Handling dynamic segments in the URL
-  if (pathSegments[1] === "user" && pathSegments.length === 3 && pathSegments[2] !== "newuser") {
-    const keyUser = pathSegments[2];
-    const currentUser = users.find((users) => users.key === keyUser);
-    pageTitle = String(currentUser?.name);
-  }
-  if (pathSegments[1] === "user" && pathSegments.length === 3 && pathSegments[2] === "newuser") {
-    pageTitle = "Make User";
-  }
-  if (
-    pathSegments[1] === "product" &&
-    pathSegments.length === 3 &&
-    pathSegments[2] !== "newproduct"
-  ) {
-    const keyProduct = pathSegments[2];
-    const currentProduct = products.find((product) => product.key === keyProduct);
-    pageTitle = String(currentProduct?.name);
-  }
-  if (
-    pathSegments[1] === "product" &&
-    pathSegments.length === 3 &&
-    pathSegments[2] === "newproduct"
-  ) {
-    pageTitle = "Make Product";
-  }
+    switch (segment1) {
+      case "dashboard":
+        pageTitle = "DashBoard";
+        break;
+      case "users":
+        pageTitle = "Users";
+        break;
+      case "user":
+        pageTitle = segment2 === "newuser" ? "Make User" : getUserPageTitle();
+        break;
+      case "products":
+        pageTitle = "Products";
+        break;
+      case "product":
+        pageTitle = segment2 === "newproduct" ? "Make Product" : getProductPageTitle();
+        break;
+      case "blogs":
+        pageTitle = "Blog";
+        break;
+      case "blog":
+        pageTitle = segment2 === "newblog" ? "Make Blog" : getBlogPageTitle();
+        break;
+      default:
+        break;
+    }
+    return pageTitle;
+  };
+
+  // get the user page title
+  const getUserPageTitle = () => {
+    const currentUser = users.find((user) => user.key === pathSegments[2]);
+    return currentUser?.name || "User Not Found";
+  };
+
+  // get the product page title
+  const getProductPageTitle = () => {
+    const currentProduct = products.find((product) => product.key === pathSegments[2]);
+    return currentProduct?.name || "Product Not Found";
+  };
+  // get the blog page title
+  const getBlogPageTitle = () => {
+    const currentBlog = blogs.find((blog) => blog.key === pathSegments[2]);
+    return currentBlog?.name || "Blogs Not Found";
+  };
 
   useEffect(() => {
+    const pageTitle = getPageTitle();
     document.title = pageTitle;
   }, [pathSegments]);
 
-  return <section className=" p-5 pt-20">{children}</section>;
+  return <section className="p-5 pt-20">{children}</section>;
 };
 
 export default PageLayout;
