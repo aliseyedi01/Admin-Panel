@@ -5,3 +5,4 @@ export { default as ChangeModeBtn } from "./Utilities/ChangeModeBtn";
 export { default as BackPage } from "./Utilities/BackPage";
 export { default as NewItem } from "./Utilities/NewItem";
 export { default as PageLayout } from "./Layout/PageLayout";
+export { default as BlogForm } from "./Blog/BlogForm";
