@@ -1,6 +1,6 @@
 // react
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // antd
 import { Button } from "antd";
 // icons
@@ -34,6 +34,11 @@ const Pages: Page[] = [
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  // Active Page
+  const location = useLocation();
+  const activePath = location.pathname.split("/")[1];
+  console.log(activePath);
 
   // redux
   const menuOpen = useAppSelector((state) => state.menu.isOpenMenu);
@@ -83,7 +88,11 @@ const Sidebar: React.FC = () => {
             >
               <Button
                 type="primary"
-                className="my-[1px] flex h-8 w-full items-center gap-3 bg-blue-500 "
+                className={`btn-sidebar my-[1px] flex h-8 w-full items-center gap-3 duration-0 hover:!bg-blue-600 hover:!text-yellow-300 ${
+                  page.name.toLowerCase() == activePath
+                    ? "bg-blue-600 text-yellow-300"
+                    : "bg-blue-500"
+                }`}
               >
                 <div className="translate-x-1">{page.icon}</div>
                 <div className="font-Montserrat">{!collapsed || menuOpen ? page.name : null}</div>
