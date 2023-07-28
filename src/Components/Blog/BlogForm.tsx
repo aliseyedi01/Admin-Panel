@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form, Input, Select, Switch, DatePicker } from "antd";
 import { Option } from "antd/es/mentions";
+import dayjs from "dayjs";
 
 const Categories: string[] = [
   "Sport",
@@ -42,18 +43,27 @@ const validateMessages = {
 const BlogForm: React.FC<{
   initialValues?: any;
   onSubmit: (value: any) => void;
-}> = ({ initialValues, onSubmit }) => {
+}> = ({ initialValues = {}, onSubmit }) => {
   const [form] = Form.useForm();
+
+  const { datePublished, ...restInitialValues } = initialValues;
+  const datePublishedValue = datePublished ? dayjs(datePublished, "YYYY-MM-DD") : undefined;
 
   const initialvalue = {
     blog: {
-      ...initialValues,
+      ...restInitialValues,
     },
   };
-
-  console.log(initialvalue);
+  // console.log(initialvalue);
 
   const onFinish = (value: any) => {
+    // Format the datePublished value before submitting
+    const formattedDatePublished = dayjs(value.blog.datePublished).format("YYYY-MM-DD");
+    value.blog.datePublished = formattedDatePublished;
+
+    // console.log("value", value.blog);
+    // console.log("date", value.blog.datePublished, typeof value.blog.datePublished);
+
     onSubmit(value);
   };
 
@@ -72,7 +82,6 @@ const BlogForm: React.FC<{
         name={["blog", "name"]}
         label={<label className="text-red-900 dark:text-white">Name</label>}
         rules={[{ required: true }]}
-        initialValue={name}
       >
         <Input />
       </Form.Item>
@@ -109,14 +118,14 @@ const BlogForm: React.FC<{
         <Input />
       </Form.Item>
       {/* Data Published */}
-      {/* <Form.Item
+      <Form.Item
         name={["blog", "datePublished"]}
         label={<label className="text-red-900 dark:text-white">Date Published</label>}
-        rules={[{ required: false, type: "date" }]}
+        rules={[{ required: true, type: "date" }]}
         hasFeedback
       >
-        <DatePicker />
-      </Form.Item> */}
+        <DatePicker format="YYYY-MM-DD" defaultValue={datePublishedValue} />
+      </Form.Item>
       {/* Category */}
       <Form.Item
         name={["blog", "category"]}

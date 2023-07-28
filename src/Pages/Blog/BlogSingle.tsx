@@ -17,7 +17,7 @@ const BlogSingle: React.FC = () => {
   // handle submit form
   const onFinish = (value: any) => {
     const updatedProduct = { key: param.blogId, ...value.blog };
-    console.log(updatedProduct);
+    // console.log(updatedProduct);
     dispatch(edit(updatedProduct));
     message.success(`${value.blog.name} : edited successfully`);
   };

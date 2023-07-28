@@ -12,7 +12,7 @@ const BlogMaker: React.FC = () => {
 
   // handle submit form
   const onFinish = (value: any) => {
-    console.log("value", value);
+    // console.log("value", value);
     const currentDate = new Date();
     const key = currentDate.getTime();
     dispatch(add({ key, ...value.blog }));
