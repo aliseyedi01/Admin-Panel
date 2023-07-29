@@ -77,5 +77,5 @@ ant-table-cell,
 }
 
 .svg-custom {
-  mask: url("/public/shape-avatar.svg") center center / contain no-repeat;
+  mask: url("/shape-avatar.svg") center center / contain no-repeat;
 }
