@@ -9,7 +9,7 @@ import { IoBagRemove } from "react-icons/io5";
 import { Button, Tooltip } from "antd";
 import RemoveProductModal from "@/Components/Modal/RemoveProductModal";
 import { Link } from "react-router-dom";
-import { NewItem, PageLayout } from "@/Components";
+import { LazyImage, NewItem, PageLayout } from "@/Components";
 
 const Products: React.FC = () => {
   const products = useAppSelector((state) => state.product);
@@ -27,10 +27,16 @@ const Products: React.FC = () => {
         <div className="flex h-full flex-wrap   dark:text-white">
           {products.map((product: Product) => (
             <div key={product.key} className=" group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
-              <img
+              {/* <img
                 src={product.image}
                 alt={product.name}
                 className=" relative -mb-[5px] w-full rounded-t-lg "
+              /> */}
+              <LazyImage
+                src={product.image}
+                alt={product.name}
+                className="relative -mb-[5px] w-full rounded-t-lg "
+                type="product"
               />
               <Tooltip title="Remove">
                 <Button

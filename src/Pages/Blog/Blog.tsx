@@ -1,11 +1,11 @@
 // react
 import React from "react";
+import { Link } from "react-router-dom";
 // component
-import { NewItem, PageLayout } from "@/Components";
+import { LazyImage, NewItem, PageLayout } from "@/Components";
 // redux
 import { useAppSelector } from "@/interface/utils";
 import { BlogType } from "@/interface/blog";
-import { Link } from "react-router-dom";
 
 const Blog: React.FC = () => {
   const blogs = useAppSelector((state) => state.blog);
@@ -17,10 +17,11 @@ const Blog: React.FC = () => {
         <div className="flex h-full flex-wrap dark:text-white">
           {blogs.map((blog: BlogType) => (
             <div key={blog.key} className="w-1/2 p-2 md:w-1/3 lg:w-1/4">
-              <img
+              <LazyImage
                 src={blog.coverImage}
                 alt={blog.name}
                 className="-mb-[5px] w-full rounded-t-lg"
+                type="blog"
               />
               <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
                 <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100 dark:bg-indigo-950"></span>
@@ -28,6 +29,7 @@ const Blog: React.FC = () => {
                   className="absolute -top-4 left-6 h-8 w-8 rounded-full"
                   src={blog.authorImage}
                   alt={blog.author}
+                  loading="lazy"
                 />
                 <Link
                   to={`/blog/${blog.key}`}
