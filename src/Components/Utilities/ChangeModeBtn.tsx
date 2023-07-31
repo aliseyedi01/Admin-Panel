@@ -2,7 +2,7 @@ import { FaSun, FaRegMoon } from "react-icons/fa";
 import { Button, Tooltip } from "antd";
 import useDarkMode from "@/Hooks/useDarkMode";
 
-export default function ChangeModeBtn() {
+const ChangeModeBtn: React.FC = () => {
   const [darkMode, handleThemeChange] = useDarkMode();
   return (
     <Tooltip title="Chang Mode">
@@ -15,4 +15,6 @@ export default function ChangeModeBtn() {
       </Button>
     </Tooltip>
   );
-}
+};
+
+export default ChangeModeBtn;

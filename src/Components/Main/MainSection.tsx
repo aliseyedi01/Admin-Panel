@@ -15,7 +15,7 @@ import { Header } from "..";
 import BlogSingle from "@/Pages/Blog/BlogSingle";
 import BlogMaker from "@/Pages/Blog/BlogMaker";
 
-function MainSection() {
+const MainSection: React.FC = () => {
   return (
     <main className="h-screen w-full overflow-y-hidden">
       <Header />
@@ -38,6 +38,6 @@ function MainSection() {
       </Routes>
     </main>
   );
-}
+};
 
 export default MainSection;
