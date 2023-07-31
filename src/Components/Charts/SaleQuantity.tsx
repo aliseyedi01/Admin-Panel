@@ -4,14 +4,16 @@ import { useEffect, useState, useMemo } from "react";
 // import Highcharts from "highcharts";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-
 import HCExporting from "highcharts/modules/exporting";
+// redux
+import { useAppSelector } from "@/interface/utils";
 
 // Initialize the exporting module
 HCExporting(Highcharts);
 
 const SaleQuantity: React.FC = () => {
   const [chartData, setChartData] = useState<number[]>([]);
+  const isDarkModeEnabled = useAppSelector((state) => state.darkMode.isDarkModeEnabled);
 
   const fetchData = async () => {
     try {
@@ -29,6 +31,7 @@ const SaleQuantity: React.FC = () => {
   }, []);
 
   const memoizedChartData = useMemo(() => chartData, [chartData]);
+
   const options = {
     chart: {
       styledMode: true,
@@ -59,7 +62,7 @@ const SaleQuantity: React.FC = () => {
       options={options}
       constructorType={"stockChart"}
       containerProps={{
-        className: "rounded-md overflow-hidden my-2  highcharts-dark",
+        className: `rounded-md overflow-hidden my-2 ${isDarkModeEnabled ? "highcharts-dark" : ""}`,
       }}
     />
   );

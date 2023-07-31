@@ -3,6 +3,7 @@ import userReducer from "./slice/userSlice";
 import menuReducer from "./slice/menuSlice";
 import productReducer from "./slice/productSlice";
 import blogReducer from "./slice/blogSlice";
+import darkmodeReducer from "./slice/darkmodeSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     menu: menuReducer,
     product: productReducer,
     blog: blogReducer,
+    darkMode: darkmodeReducer,
   },
 });
 
