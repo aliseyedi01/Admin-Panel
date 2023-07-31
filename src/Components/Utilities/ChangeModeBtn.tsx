@@ -6,20 +6,21 @@ import { Button, Tooltip } from "antd";
 import useDarkMode from "@/Hooks/useDarkMode";
 // redux
 import { useAppDispatch } from "@/interface/utils";
-import { toggleDarkMode } from "@/store/slice/darkmodeSlice";
+import { disableDarkMode, enableDarkMode } from "@/store/slice/darkmodeSlice";
 
 const ChangeModeBtn: React.FC = () => {
   const [darkMode, handleThemeChange] = useDarkMode();
   const dispatch = useAppDispatch();
 
-  const handleClick = () => {
-    handleThemeChange();
-    dispatch(toggleDarkMode());
-  };
+  if (darkMode) {
+    dispatch(enableDarkMode());
+  } else {
+    dispatch(disableDarkMode());
+  }
 
   return (
     <Tooltip title="Chang Mode">
-      <Button type="ghost" className="p-1" onClick={handleClick}>
+      <Button type="ghost" className="p-1" onClick={handleThemeChange}>
         {darkMode ? (
           <FaSun className=" text-lg text-yellow-300 md:text-2xl" />
         ) : (
