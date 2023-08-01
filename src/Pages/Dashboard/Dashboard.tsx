@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // component
-import { PageLayout, SaleQuantity, GeneralStats, ProductSale } from "@/Components";
+import { PageLayout, SaleQuantity, GeneralStats, ProductSale, CityViews } from "@/Components";
 
 const Dashboard: React.FC = () => {
   return (
@@ -10,6 +10,7 @@ const Dashboard: React.FC = () => {
         <GeneralStats />
         <SaleQuantity />
         <ProductSale />
+        <CityViews />
       </PageLayout>
     </div>
   );
