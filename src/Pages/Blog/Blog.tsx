@@ -24,7 +24,7 @@ const Blog: React.FC = () => {
                 type="blog"
               />
               <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
-                <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100 dark:bg-indigo-950"></span>
+                <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100  dark:bg-indigo-950"></span>
                 <img
                   className="absolute -top-4 left-6 h-8 w-8 rounded-full"
                   src={blog.authorImage}

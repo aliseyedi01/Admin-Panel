@@ -14,3 +14,4 @@ export { default as NewItem } from "./Utilities/NewItem";
 // Charts
 export { default as GeneralStats } from "./Charts/GeneralStats";
 export { default as SaleQuantity } from "./Charts/SaleQuantity";
+export { default as ProductSale } from "./Charts/ProductSale";

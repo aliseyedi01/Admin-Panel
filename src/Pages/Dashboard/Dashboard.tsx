@@ -1,14 +1,17 @@
 // React
 import React from "react";
 // component
-import { PageLayout, SaleQuantity, GeneralStats } from "@/Components";
+import { PageLayout, SaleQuantity, GeneralStats, ProductSale } from "@/Components";
 
 const Dashboard: React.FC = () => {
   return (
-    <PageLayout>
-      <GeneralStats />
-      <SaleQuantity />
-    </PageLayout>
+    <div className="hide-scrollbar h-full overflow-y-scroll">
+      <PageLayout>
+        <GeneralStats />
+        <SaleQuantity />
+        <ProductSale />
+      </PageLayout>
+    </div>
   );
 };
 

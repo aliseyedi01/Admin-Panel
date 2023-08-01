@@ -5,11 +5,9 @@ import { useEffect, useState, useMemo } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import HCExporting from "highcharts/modules/exporting";
+HCExporting(Highcharts);
 // redux
 import { useAppSelector } from "@/interface/utils";
-
-// Initialize the exporting module
-HCExporting(Highcharts);
 
 const SaleQuantity: React.FC = () => {
   const [chartData, setChartData] = useState<number[]>([]);
@@ -35,6 +33,9 @@ const SaleQuantity: React.FC = () => {
   const options = {
     chart: {
       styledMode: true,
+    },
+    credits: {
+      enabled: false,
     },
     title: {
       text: "Sale Quantity",
@@ -62,7 +63,7 @@ const SaleQuantity: React.FC = () => {
       options={options}
       constructorType={"stockChart"}
       containerProps={{
-        className: `rounded-md overflow-hidden my-2 ${
+        className: `rounded-md my-2 overflow-hidden ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}

@@ -20,28 +20,31 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
   /* Hide scrollbar for IE, Edge and Firefox */
   .hide-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-  /* custom theme highcharts */
+  /* svg products */
+  .svg-custom {
+    mask: url("/shape-avatar.svg") center center / contain no-repeat;
+  }
 
+  /* custom theme highcharts */
   .highcharts-figure {
     max-width: 800px;
     min-width: 360px;
     margin: 0 auto;
   }
-
   .highcharts-background {
     transition: all 50ms;
   }
-
   .highcharts-description {
     margin: 1rem 0;
   }
-
+  text.highcharts-title {
+    @apply font-Lilita;
+  }
   .highcharts-light {
     /* Colors for data series and points */
     --highcharts-color-0: #b3597c;
@@ -52,7 +55,6 @@
     --highcharts-color-5: #977dd5;
     --highcharts-color-6: #b3597c;
     --highcharts-color-7: #b27fd6;
-
     /* UI colors */
     --highcharts-background-color: rgb(203, 213, 225);
 
@@ -61,10 +63,9 @@
     --highcharts-neutral-color-60: rgb(52, 27, 214);
     --highcharts-neutral-color-40: rgb(133, 133, 133);
     --highcharts-neutral-color-20: rgb(92, 92, 92);
-    --highcharts-neutral-color-10: rgb(255, 255, 255);
+    --highcharts-neutral-color-10: rgb(146, 168, 226);
     --highcharts-neutral-color-5: rgb(139, 197, 40);
     --highcharts-neutral-color-3: rgb(86, 165, 21);
-
     /* Highlight color variations */
     --highcharts-highlight-color-100: rgb(122, 167, 255);
     --highcharts-highlight-color-80: rgb(108, 144, 214);
@@ -83,25 +84,22 @@
     --highcharts-color-5: #977dd5;
     --highcharts-color-6: #b3597c;
     --highcharts-color-7: #b27fd6;
-
     /* UI colors */
     --highcharts-background-color: rgb(23, 37, 84);
-
     /* Neutral color variations */
     --highcharts-neutral-color-100: rgb(255, 255, 255);
     --highcharts-neutral-color-80: rgb(214, 214, 214);
     --highcharts-neutral-color-60: rgb(173, 173, 173);
     --highcharts-neutral-color-40: rgb(133, 133, 133);
     --highcharts-neutral-color-20: rgb(92, 92, 92);
-    --highcharts-neutral-color-10: rgb(71, 71, 71);
-    --highcharts-neutral-color-5: rgb(61, 61, 61);
+    --highcharts-neutral-color-10: rgb(109, 129, 216);
+    --highcharts-neutral-color-5: rgb(95, 129, 215);
     --highcharts-neutral-color-3: rgb(57, 57, 57);
-
     /* Highlight color variations */
     --highcharts-highlight-color-100: rgb(122, 167, 255);
     --highcharts-highlight-color-80: rgb(108, 144, 214);
     --highcharts-highlight-color-60: rgb(94, 121, 173);
-    --highcharts-highlight-color-20: rgb(65, 74, 92);
+    --highcharts-highlight-color-20: rgb(0, 85, 255);
     --highcharts-highlight-color-10: rgb(104, 132, 179);
   }
 }
@@ -153,8 +151,4 @@
 ant-table-cell,
 .ant-table-row {
   @apply dark:bg-slate-600 dark:text-white;
-}
-
-.svg-custom {
-  mask: url("/shape-avatar.svg") center center / contain no-repeat;
 }
