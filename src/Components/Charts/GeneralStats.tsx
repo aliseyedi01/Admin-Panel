@@ -1,6 +1,7 @@
 import React from "react";
 import { CountUp } from "@/Components";
 import UserBar from "./UserBar";
+import PostArea from "./PostArea";
 import {
   AiOutlineTeam,
   AiOutlineShoppingCart,
@@ -15,7 +16,7 @@ const dashboardStats: {
   chart?: JSX.Element | undefined;
 }[] = [
   { title: "Users", number: 2947, icon: <AiOutlineTeam />, chart: <UserBar /> },
-  { title: "Posts", number: 4032, icon: <AiOutlineProfile />, chart: undefined },
+  { title: "Posts", number: 4032, icon: <AiOutlineProfile />, chart: <PostArea /> },
   { title: "Products", number: 6904, icon: <AiOutlineShoppingCart />, chart: undefined },
   { title: "Orders", number: 240, icon: <AiOutlineGift />, chart: undefined },
 ];
