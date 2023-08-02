@@ -10,6 +10,9 @@ export default {
         Montserrat: ["Montserrat Alternates", "sans-serif"],
         Lilita: ["Lilita One", "sans-serif"],
       },
+      strokeWidth: {
+        6: "6px",
+      },
     },
   },
   plugins: [require("prettier-plugin-tailwindcss")],

@@ -63,7 +63,7 @@ const SaleQuantity: React.FC = () => {
       options={options}
       constructorType={"stockChart"}
       containerProps={{
-        className: `rounded-md my-2 overflow-hidden ${
+        className: `rounded-md my-2 fill-transparent overflow-hidden ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}

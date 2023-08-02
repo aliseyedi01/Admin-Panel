@@ -3,12 +3,12 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useAppSelector } from "@/interface/utils";
 
-const PostArea: React.FC = () => {
+const ProductSpline: React.FC = () => {
   const isDarkModeEnabled = useAppSelector((state) => state.darkMode.isDarkModeEnabled);
 
   const options = {
     chart: {
-      type: "areaspline",
+      type: "spline",
       styledMode: true,
       spacing: [0, 0, 0, 0],
       marginTop: 0,
@@ -33,8 +33,8 @@ const PostArea: React.FC = () => {
     series: [
       {
         data: [
-          209, 200, 180, 150, 140, 130, 150, 160, 170, 190, 200, 220, 222, 224, 190, 180, 170, 200,
-          190,
+          130, 140, 150, 160, 200, 220, 190, 180, 160, 190, 200, 150, 140, 130, 110, 150, 170, 210,
+          230,
         ],
         marker: {
           enabled: false,
@@ -45,12 +45,13 @@ const PostArea: React.FC = () => {
       },
     ],
   };
+
   return (
     <HighchartsReact
       highcharts={Highcharts}
       options={options}
       containerProps={{
-        className: `rounded-md h-32 fill-transparent overflow-hidden  w-full ${
+        className: ` !stroke-6 rounded-md h-32 fill-transparent overflow-hidden  w-full ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}
@@ -58,4 +59,4 @@ const PostArea: React.FC = () => {
   );
 };
 
-export default PostArea;
+export default ProductSpline;

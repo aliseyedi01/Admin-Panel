@@ -47,7 +47,7 @@ const UserBar: React.FC = () => {
       highcharts={Highcharts}
       options={options}
       containerProps={{
-        className: `rounded-md h-32 fill-yellow-200 overflow-hidden  w-full ${
+        className: `rounded-md h-32 fill-transparent overflow-hidden  w-full ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}

@@ -8,6 +8,7 @@ import {
   AiOutlineProfile,
   AiOutlineGift,
 } from "react-icons/ai";
+import ProductSpline from "./ProductSpline";
 
 const dashboardStats: {
   title: string;
@@ -15,9 +16,9 @@ const dashboardStats: {
   icon: JSX.Element;
   chart?: JSX.Element | undefined;
 }[] = [
+  { title: "Products", number: 6904, icon: <AiOutlineShoppingCart />, chart: <ProductSpline /> },
   { title: "Users", number: 2947, icon: <AiOutlineTeam />, chart: <UserBar /> },
   { title: "Posts", number: 4032, icon: <AiOutlineProfile />, chart: <PostArea /> },
-  { title: "Products", number: 6904, icon: <AiOutlineShoppingCart />, chart: undefined },
   { title: "Orders", number: 240, icon: <AiOutlineGift />, chart: undefined },
 ];
 
@@ -34,7 +35,7 @@ const Stats: React.FC = () => {
               <span className="text-2xl font-bold text-blue-700 dark:text-blue-400">
                 {item.icon}
               </span>
-              <p className="justify-between font-Lemon text-sm">{item.title}</p>
+              <p className="justify-between font-Lemon  text-sm">{item.title}</p>
             </div>
             <CountUp
               end={item.number}

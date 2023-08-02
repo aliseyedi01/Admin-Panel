@@ -45,6 +45,7 @@
   text.highcharts-title {
     @apply font-Lilita;
   }
+
   .highcharts-light {
     /* Colors for data series and points */
     --highcharts-color-0: #3e53cd;

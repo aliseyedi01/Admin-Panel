@@ -115,7 +115,7 @@ const CityViews: React.FC = () => {
       options={options}
       constructorType="mapChart"
       containerProps={{
-        className: `rounded-md my-2 overflow-hidden inline-block w-full md:w-1/3 ${
+        className: `rounded-md my-2 overflow-hidden fill-transparent inline-block w-full md:w-1/3 ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}

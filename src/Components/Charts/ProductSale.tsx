@@ -116,7 +116,7 @@ const ProductSale: React.FC = () => {
       highcharts={Highcharts}
       options={options}
       containerProps={{
-        className: `!rounded-md overflow-hidden inline-block  my-2 w-full md:w-1/3 ${
+        className: `!rounded-md overflow-hidden fill-transparent inline-block  my-2 w-full md:w-1/3 ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}
