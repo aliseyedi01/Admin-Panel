@@ -2,13 +2,14 @@ import React from "react";
 import { CountUp } from "@/Components";
 import UserBar from "./UserBar";
 import PostArea from "./PostArea";
+import ProductSpline from "./ProductSpline";
+import CircleOrder from "./CircleOrder";
 import {
   AiOutlineTeam,
   AiOutlineShoppingCart,
   AiOutlineProfile,
   AiOutlineGift,
 } from "react-icons/ai";
-import ProductSpline from "./ProductSpline";
 
 const dashboardStats: {
   title: string;
@@ -19,12 +20,12 @@ const dashboardStats: {
   { title: "Products", number: 6904, icon: <AiOutlineShoppingCart />, chart: <ProductSpline /> },
   { title: "Users", number: 2947, icon: <AiOutlineTeam />, chart: <UserBar /> },
   { title: "Posts", number: 4032, icon: <AiOutlineProfile />, chart: <PostArea /> },
-  { title: "Orders", number: 240, icon: <AiOutlineGift />, chart: undefined },
+  { title: "Orders", number: 240, icon: <AiOutlineGift />, chart: <CircleOrder /> },
 ];
 
 const Stats: React.FC = () => {
   return (
-    <div className="grid grid-cols-2 gap-2 font-Ubuntu dark:text-white md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-2 font-Ubuntu dark:text-white md:grid-cols-3 lg:grid-cols-4">
       {dashboardStats.map((item, i) => (
         <div
           key={i}

@@ -60,7 +60,7 @@
     --highcharts-background-color: rgb(203, 213, 225);
 
     --highcharts-neutral-color-100: rgb(147, 33, 33);
-    --highcharts-neutral-color-80: rgb(78, 24, 24);
+    --highcharts-neutral-color-80: rgb(72, 10, 10);
     --highcharts-neutral-color-60: rgb(52, 27, 214);
     --highcharts-neutral-color-40: rgb(133, 133, 133);
     --highcharts-neutral-color-20: rgb(92, 92, 92);
@@ -95,7 +95,7 @@
     --highcharts-neutral-color-20: rgb(92, 92, 92);
     --highcharts-neutral-color-10: rgb(109, 129, 216);
     --highcharts-neutral-color-5: rgb(95, 129, 215);
-    --highcharts-neutral-color-3: rgb(57, 57, 57);
+    --highcharts-neutral-color-3: rgb(12, 81, 106);
     /* Highlight color variations */
     --highcharts-highlight-color-100: rgb(122, 167, 255);
     --highcharts-highlight-color-80: rgb(108, 144, 214);
