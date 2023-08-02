@@ -47,7 +47,7 @@
   }
   .highcharts-light {
     /* Colors for data series and points */
-    --highcharts-color-0: #b3597c;
+    --highcharts-color-0: #3e53cd;
     --highcharts-color-1: #c4688c;
     --highcharts-color-2: #78a8d1;
     --highcharts-color-3: #7991d2;
@@ -76,7 +76,7 @@
 
   .highcharts-dark {
     /* Colors for data series and points */
-    --highcharts-color-0: #b3597c;
+    --highcharts-color-0: #1665d3;
     --highcharts-color-1: #c4688c;
     --highcharts-color-2: #78a8d1;
     --highcharts-color-3: #7991d2;
