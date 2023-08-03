@@ -1,7 +1,14 @@
 // React
 import React from "react";
 // component
-import { PageLayout, SaleQuantity, GeneralStats, ProductSale, CityViews } from "@/Components";
+import {
+  PageLayout,
+  SaleQuantity,
+  GeneralStats,
+  ProductSale,
+  CityViews,
+  SpendingRadar,
+} from "@/Components";
 
 const Dashboard: React.FC = () => {
   return (
@@ -11,6 +18,7 @@ const Dashboard: React.FC = () => {
         <SaleQuantity />
         <ProductSale />
         <CityViews />
+        <SpendingRadar />
       </PageLayout>
     </div>
   );

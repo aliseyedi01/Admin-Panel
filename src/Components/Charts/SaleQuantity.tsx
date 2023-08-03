@@ -1,7 +1,6 @@
 // React
 import { useEffect, useState, useMemo } from "react";
 // highcharts
-// import Highcharts from "highcharts";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import HCExporting from "highcharts/modules/exporting";
@@ -18,7 +17,6 @@ const SaleQuantity: React.FC = () => {
       const response = await fetch("https://demo-live-data.highcharts.com/aapl-c.json");
       const data = await response.json();
       setChartData(data);
-      // console.log(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -33,6 +31,7 @@ const SaleQuantity: React.FC = () => {
   const options = {
     chart: {
       styledMode: true,
+      zoomType: "x",
     },
     credits: {
       enabled: false,
@@ -40,12 +39,13 @@ const SaleQuantity: React.FC = () => {
     title: {
       text: "Sale Quantity",
     },
-    xAxis: {},
+    xAxis: {
+      panning: false,
+    },
     yAxis: {
       title: {
         text: "Quantity",
       },
-      opposite: false,
     },
     series: [
       {
@@ -63,7 +63,7 @@ const SaleQuantity: React.FC = () => {
       options={options}
       constructorType={"stockChart"}
       containerProps={{
-        className: `rounded-md my-2 fill-transparent overflow-hidden ${
+        className: `rounded-md my-2  fill-transparent overflow-hidden ${
           isDarkModeEnabled ? "highcharts-dark" : "highcharts-light"
         }`,
       }}

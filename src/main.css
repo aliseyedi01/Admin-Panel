@@ -30,22 +30,7 @@
     mask: url("/shape-avatar.svg") center center / contain no-repeat;
   }
 
-  /* custom theme highcharts */
-  .highcharts-figure {
-    max-width: 800px;
-    min-width: 360px;
-    margin: 0 auto;
-  }
-  .highcharts-background {
-    transition: all 50ms;
-  }
-  .highcharts-description {
-    margin: 1rem 0;
-  }
-  text.highcharts-title {
-    @apply font-Lilita;
-  }
-
+  /* Theme Light & DarkMode in HighCharts */
   .highcharts-light {
     /* Colors for data series and points */
     --highcharts-color-0: #3e53cd;
@@ -152,4 +137,25 @@
 ant-table-cell,
 .ant-table-row {
   @apply dark:bg-slate-600 dark:text-white;
+}
+
+/* custom theme highcharts */
+.highcharts-figure {
+  max-width: 800px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+.highcharts-background {
+  transition: all 50ms;
+}
+.highcharts-description {
+  margin: 1rem 0;
+}
+
+.highcharts-title {
+  @apply font-Ubuntu text-lg;
+}
+
+.highcharts-axis .highcharts-axis-line {
+  display: none !important;
 }
