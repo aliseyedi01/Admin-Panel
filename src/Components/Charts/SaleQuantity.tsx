@@ -32,6 +32,15 @@ const SaleQuantity: React.FC = () => {
     chart: {
       styledMode: true,
       zoomType: "x",
+      panning: true,
+      zooming: {
+        mouseWheel: {
+          enabled: false,
+        },
+      },
+    },
+    scrollbar: {
+      enabled: true,
     },
     credits: {
       enabled: false,
