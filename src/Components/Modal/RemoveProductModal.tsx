@@ -1,6 +1,10 @@
+// react
 import React, { useState, useEffect } from "react";
+// component
 import ConfirmModal from "./ConfirmModal";
+// types
 import { Product } from "@/interface/product";
+// redux
 import { useDispatch } from "react-redux";
 import { remove } from "@/store/slice/productSlice";
 

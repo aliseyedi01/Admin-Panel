@@ -159,3 +159,11 @@ ant-table-cell,
 .highcharts-axis .highcharts-axis-line {
   display: none !important;
 }
+
+/* custom modal ant design */
+.modalStyle .ant-modal-content {
+  @apply bg-blue-300;
+}
+.ant-switch-checked {
+  background-color: red;
+}

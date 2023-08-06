@@ -9,7 +9,7 @@ const BackPage: React.FC = () => {
   return (
     <Tooltip title="Back">
       <Button
-        className="mb-5"
+        className="mb-5 bg-blue-500"
         type="primary"
         icon={<IoChevronBack />}
         onClick={() => navigate(-1)}

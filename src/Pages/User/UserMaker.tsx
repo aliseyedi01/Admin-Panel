@@ -51,7 +51,7 @@ const UserMaker: React.FC = () => {
       {contextHolder}
       <Tooltip title="Back">
         <Button
-          className="mb-5"
+          className="mb-5 bg-blue-500"
           type="primary"
           icon={<IoChevronBack />}
           onClick={() => navigate(-1)}
@@ -115,7 +115,7 @@ const UserMaker: React.FC = () => {
         </Form.Item>
         {/* Submit Form */}
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" className="bg-blue-500">
             Submit
           </Button>
         </Form.Item>

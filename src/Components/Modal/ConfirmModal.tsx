@@ -23,6 +23,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
       title={title}
       open={open}
       onOk={onConfirm}
+      okButtonProps={{ className: "bg-blue-500" }}
       confirmLoading={confirmLoading}
       onCancel={onCancel}
     >

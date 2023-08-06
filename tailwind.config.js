@@ -17,6 +17,6 @@ export default {
   },
   plugins: [require("prettier-plugin-tailwindcss")],
   corePlugins: {
-    preflight: false,
+    // preflight: false,
   },
 };

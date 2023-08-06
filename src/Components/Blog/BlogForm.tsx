@@ -54,17 +54,22 @@ const BlogForm: React.FC<{
       ...restInitialValues,
     },
   };
-  // console.log(initialvalue);
 
   const onFinish = (value: any) => {
     // Format the datePublished value before submitting
     const formattedDatePublished = dayjs(value.blog.datePublished).format("YYYY-MM-DD");
     value.blog.datePublished = formattedDatePublished;
 
-    // console.log("value", value.blog);
-    // console.log("date", value.blog.datePublished, typeof value.blog.datePublished);
-
     onSubmit(value);
+  };
+
+  // handle change color in switch
+  const [permission, setPermission] = React.useState({
+    enabled: initialValues.blog?.newPublished || false,
+  });
+
+  const onPermissionChanged = (checked: boolean) => {
+    setPermission({ enabled: checked });
   };
 
   return (
@@ -144,14 +149,20 @@ const BlogForm: React.FC<{
       {/* New Published */}
       <Form.Item
         name={["blog", "newPublished"]}
-        label={<label className="text-red-900 dark:text-white">New Blog</label>}
+        label={<label className=" text-red-900 dark:text-white">New Blog</label>}
         hasFeedback
       >
-        <Switch checkedChildren="new" unCheckedChildren="old" />
+        <Switch
+          checkedChildren="new"
+          unCheckedChildren="old"
+          style={{ backgroundColor: permission.enabled ? "#3b82f6" : "gray" }}
+          checked={permission.enabled}
+          onChange={onPermissionChanged}
+        />
       </Form.Item>
       {/* Submit Form */}
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" className="bg-blue-500">
           Submit
         </Button>
       </Form.Item>

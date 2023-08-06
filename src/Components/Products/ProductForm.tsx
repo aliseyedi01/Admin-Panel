@@ -108,7 +108,7 @@ const ProductForm: React.FC<{
       </Form.Item>
       {/* Submit Form */}
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" className="bg-blue-500">
           Submit
         </Button>
       </Form.Item>
