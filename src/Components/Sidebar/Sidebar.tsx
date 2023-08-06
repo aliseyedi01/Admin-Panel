@@ -62,10 +62,11 @@ const Sidebar: React.FC = () => {
       {/* sidebar */}
       <aside
         ref={sidebarRef}
-        className={`surface flex h-full flex-col items-center   gap-4 py-4 transition-all duration-500   ${
-          collapsed ? "w-20" : "w-96"
+        className={`surface flex h-full flex-col items-center gap-4 py-4 transition-all duration-500   ${
+          collapsed ? "w-20" : "w-72"
         } ${menuOpen ? "absolute z-50 w-48" : "hidden md:flex"}`}
       >
+        {/* collapse button & panel's admin */}
         <Button
           onClick={() => {
             setCollapsed(!collapsed);
@@ -77,25 +78,24 @@ const Sidebar: React.FC = () => {
         <h2 className=" flex items-center gap-3 self-center font-Lemon text-base  dark:text-white md:text-xl">
           <FaDesktop className="text-2xl" /> {!collapsed ? " Admin Panel" : null}
         </h2>
-
-        <div className="mt-2 w-full px-2">
+        {/* pages name */}
+        <div className="mt-2 w-full pl-2">
           {Pages.map((page) => (
             <Link
               key={page.id}
               to={page.name.toLowerCase()}
               className="flex w-full items-center justify-center gap-3 no-underline"
             >
-              <Button
-                type="primary"
-                className={`my-[1px] flex h-8 w-full items-center gap-3 duration-0 hover:!bg-blue-600 hover:!text-yellow-300 ${
+              <div
+                className={`my-[1px] flex h-8 w-full  items-center gap-3  duration-0 hover:text-indigo-700  hover:dark:text-white ${
                   page.name.toLowerCase() == activePath
-                    ? "bg-blue-600 text-yellow-300"
-                    : "bg-blue-500"
-                }`}
+                    ? " border-r-4 border-blue-600 pl-1 text-blue-600 dark:border-white dark:text-white"
+                    : "border-blue-500"
+                } ${!collapsed ? "justify-start pl-0" : "justify-center"} `}
               >
                 <div className="translate-x-1">{page.icon}</div>
                 <div className="font-Montserrat">{!collapsed || menuOpen ? page.name : null}</div>
-              </Button>
+              </div>
             </Link>
           ))}
         </div>
