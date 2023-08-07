@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed right-0 top-0 z-20 h-16 w-full bg-slate-200 bg-opacity-20 backdrop-blur-lg transition-all duration-0 dark:bg-indigo-950/[0.2]  ${
-        collapse ? "md:w-[calc(100vw-307px)]" : "md:w-[calc(100vw-70px)]"
+        collapse ? "md:w-[calc(100vw-242px)]" : "md:w-[calc(100vw-79px)]"
       }`}
     >
       <div className=" mx-auto flex h-16 w-full  items-center justify-between px-5 ">
