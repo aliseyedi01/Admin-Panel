@@ -79,22 +79,24 @@ const Sidebar: React.FC = () => {
           <FaDesktop className="text-2xl" /> {!collapsed ? " Admin Panel" : null}
         </h2>
         {/* pages name */}
-        <div className="mt-2 w-full pl-2">
+        <div className="mt-2 w-full space-y-1">
           {Pages.map((page) => (
             <Link
               key={page.id}
               to={page.name.toLowerCase()}
-              className="flex w-full items-center justify-center gap-3 no-underline"
+              className="flex w-full items-center justify-center no-underline"
             >
               <div
-                className={`my-[1px] flex h-8 w-full  items-center gap-3  duration-0 hover:text-indigo-700  hover:dark:text-white ${
+                className={`relative flex h-8 w-full items-center gap-2 border-l-4 duration-100 hover:text-indigo-700 dark:text-indigo-300  hover:dark:text-slate-100 ${
                   page.name.toLowerCase() == activePath
-                    ? " border-r-4 border-blue-600 pl-1 text-blue-600 dark:border-white dark:text-white"
-                    : "border-blue-500"
-                } ${!collapsed ? "justify-start pl-0" : "justify-center"} `}
+                    ? "border-blue-600 bg-blue-200 box-decoration-slice text-blue-600 dark:border-indigo-500 dark:bg-indigo-800 dark:text-slate-100"
+                    : "border-transparent"
+                } ${!collapsed ? "justify-start" : "justify-center pr-1"}`}
               >
-                <div className="translate-x-1">{page.icon}</div>
-                <div className="font-Montserrat">{!collapsed || menuOpen ? page.name : null}</div>
+                <div className={`${!collapsed || menuOpen ? "pl-2" : ""}`}>{page.icon}</div>
+                <div className={`font-Montserrat ${!collapsed || menuOpen ? "" : "hidden"}`}>
+                  {page.name}
+                </div>
               </div>
             </Link>
           ))}
