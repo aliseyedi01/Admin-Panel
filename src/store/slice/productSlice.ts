@@ -1,3 +1,4 @@
+// redux
 import { Gender, ProductState } from "@/interface/product";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -163,7 +164,7 @@ const initialState: ProductState = [
 ];
 
 const productSlice = createSlice({
-  name: "product",
+  name: "blogs",
   initialState,
   reducers: {
     remove: (state, action) => {

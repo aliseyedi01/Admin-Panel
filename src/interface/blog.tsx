@@ -10,4 +10,4 @@ export interface BlogType {
   datePublished: string;
 }
 
-export type BlogState = BlogType[];
+export type BlogState = BlogType[] | undefined;

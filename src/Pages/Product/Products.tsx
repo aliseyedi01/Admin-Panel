@@ -12,8 +12,8 @@ import { Link } from "react-router-dom";
 import { LazyImage, NewItem, PageLayout } from "@/Components";
 
 const Products: React.FC = () => {
+  // get products of redux
   const products = useAppSelector((state) => state.product);
-
   // remove product
   const [productRemoved, setProductRemoved] = useState<Product | null>(null);
   const handleRemoveProduct = (product: Product) => {
@@ -26,12 +26,7 @@ const Products: React.FC = () => {
         <NewItem name="Product" path="/product/newproduct" />
         <div className="flex h-full flex-wrap   dark:text-white">
           {products.map((product: Product) => (
-            <div key={product.key} className=" group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
-              {/* <img
-                src={product.image}
-                alt={product.name}
-                className=" relative -mb-[5px] w-full rounded-t-lg "
-              /> */}
+            <div key={product.key} className="group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
               <LazyImage
                 src={product.image}
                 alt={product.name}
@@ -43,7 +38,7 @@ const Products: React.FC = () => {
                   type="ghost"
                   onClick={() => handleRemoveProduct(product)}
                   className="absolute left-3 top-4 hidden group-hover:block"
-                  icon={<IoBagRemove className="   text-lg text-red-600" />}
+                  icon={<IoBagRemove className="text-lg text-red-600" />}
                 />
               </Tooltip>
               {product.new && (
@@ -52,7 +47,7 @@ const Products: React.FC = () => {
                 </div>
               )}
               {product.sale && (
-                <div className="absolute right-5 top-5  rounded-s-xl bg-red-500 px-2 py-1 font-Ubuntu text-sm font-bold text-white md:text-base">
+                <div className="absolute right-5 top-5 rounded-s-xl bg-red-500 px-2 py-1 font-Ubuntu text-sm font-bold text-white md:text-base">
                   Sale
                 </div>
               )}

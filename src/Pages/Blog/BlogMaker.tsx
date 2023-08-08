@@ -4,7 +4,7 @@ import React from "react";
 import { PageLayout, BackPage, BlogForm } from "@/Components";
 // redux
 import { useAppDispatch } from "@/interface/utils";
-import { add } from "@/store/slice/blogSlice";
+import { newBlog } from "@/store/slice/blogSlice";
 // antd
 import { message } from "antd";
 
@@ -16,7 +16,7 @@ const BlogMaker: React.FC = () => {
     // console.log("value", value);
     const currentDate = new Date();
     const key = currentDate.getTime();
-    dispatch(add({ key, ...value.blog }));
+    dispatch(newBlog({ key, ...value.blog }));
     message.success(`${value.blog.name} : added successfully`);
   };
 
