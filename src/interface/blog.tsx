@@ -11,3 +11,5 @@ export interface BlogType {
 }
 
 export type BlogState = BlogType[] | undefined;
+
+export type BlogUpdate = Partial<BlogType>;

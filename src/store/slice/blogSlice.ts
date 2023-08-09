@@ -12,7 +12,7 @@ const blogSlice = createSlice({
     },
     removeBlog: (state, action) => {
       const key = action.payload;
-      return state.filter((blog) => blog.key !== key);
+      return state.filter((blog) => blog.key != key);
     },
     newBlog: (state, action) => {
       const newBlog = action.payload;
