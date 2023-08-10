@@ -19,12 +19,12 @@ const RemoveUserModal: React.FC<RemoveUserModalProps> = ({ user }) => {
 
   useEffect(() => {
     setOpen(true);
-    setModalText(`Are you sure to remove ${user.name} ?`);
+    setModalText(user.name);
   }, [user]);
 
   // confirm to remove user
   const handleOk = () => {
-    setModalText(`Permanently Removing  : ${user.name}`);
+    setModalText(user.name);
     setConfirmLoading(true);
     setTimeout(() => {
       dispatch(remove(user.key));

@@ -44,7 +44,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
         >
           {confirmLoading ? (
             <span>
-              Deleting
+              Removing
               <Spin indicator={antIcon} className="ml-1" />
             </span>
           ) : (
