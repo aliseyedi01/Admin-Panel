@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
 import { BackPage, PageLayout } from "@/Components";
 import { useAppSelector } from "@/interface/utils";
+import { editUser } from "@/store/slice/userSlice";
 
 const layout = {
   labelCol: { span: 8 },
@@ -37,8 +38,8 @@ const UserSingle: React.FC = () => {
   // get indent user for edit
   const param = useParams();
   const users = useAppSelector((state) => state.users);
-  const editUser = users.find((user: DataType) => user.key === param.userId)!;
-  const { name, email, age, role, status } = editUser;
+  const editedUser = users.find((user: DataType) => user.key === param.userId)!;
+  const { name, email, age, role, status } = editedUser;
 
   // handle submit form
   const onFinish = (value: any) => {
