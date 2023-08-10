@@ -161,9 +161,13 @@ ant-table-cell,
 }
 
 /* custom modal ant design */
-.modalStyle .ant-modal-content {
-  @apply bg-blue-300;
-}
+
 .ant-switch-checked {
   background-color: red;
+}
+.ant-modal-content {
+  @apply !bg-blue-100 dark:bg-indigo-900;
+}
+.ant-modal-title {
+  background-color: #dbeafe;
 }

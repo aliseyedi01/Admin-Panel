@@ -7,18 +7,18 @@ import productReducer from "./slice/productSlice";
 import blogReducer from "./slice/blogSlice";
 import darkmodeReducer from "./slice/darkmodeSlice";
 // api
-import { blogsApi } from "./api/blogsApi";
+import { supabaseApi } from "./api/supabaseApi";
 
 const store = configureStore({
   reducer: {
-    [blogsApi.reducerPath]: blogsApi.reducer,
+    [supabaseApi.reducerPath]: supabaseApi.reducer,
     users: userReducer,
     menu: menuReducer,
     product: productReducer,
     blog: blogReducer,
     darkMode: darkmodeReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(blogsApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(supabaseApi.middleware),
 });
 
 export default store;

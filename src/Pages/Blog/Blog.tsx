@@ -1,13 +1,18 @@
 // react
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // component
 import { LazyImage, NewItem, PageLayout } from "@/Components";
+import RemoveProductModal from "@/Components/Modal/RemoveProductModal";
 // redux
 import { useAppDispatch, useAppSelector } from "@/interface/utils";
 import { BlogType } from "@/interface/blog";
-import { useGetBlogsQuery } from "@/store/api/blogsApi";
-import { addBlogs } from "@/store/slice/blogSlice";
+import { useGetBlogsQuery } from "@/store/api/supabaseApi";
+import { addBlogs, removeBlog } from "@/store/slice/blogSlice";
+// antd
+import { Button, Tooltip } from "antd";
+// icon
+import { IoBagRemove } from "react-icons/io5";
 
 const Blog: React.FC = () => {
   const blogs = useAppSelector((state) => state.blog);
@@ -24,7 +29,11 @@ const Blog: React.FC = () => {
         dispatch(addBlogs(newBlogs));
       }
     }
-  }, [blogsApi]);
+    // console.log("render useEffect");
+  }, []);
+
+  // remove blog
+  const [removedBlog, setRemovedBlog] = useState<BlogType | null>(null);
 
   return (
     <div className="hide-scrollbar h-full overflow-y-scroll">
@@ -33,13 +42,21 @@ const Blog: React.FC = () => {
         <div className="flex h-full flex-wrap dark:text-white">
           {blogs &&
             blogs.map((blog: BlogType) => (
-              <div key={blog.key} className="w-1/2 p-2 md:w-1/3 lg:w-1/4">
+              <div key={blog.key} className="group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
                 <LazyImage
                   src={blog.coverImage}
                   alt={blog.name}
-                  className="-mb-[5px] w-full rounded-t-lg"
+                  className="relative -mb-[5px] w-full rounded-t-lg"
                   type="blog"
                 />
+                <Tooltip title="Remove">
+                  <Button
+                    type="ghost"
+                    onClick={() => setRemovedBlog(blog)}
+                    className="absolute left-3 top-4 hidden group-hover:block"
+                    icon={<IoBagRemove className="text-lg text-red-600" />}
+                  />
+                </Tooltip>
                 <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
                   <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100  dark:bg-indigo-950"></span>
                   <img
@@ -61,6 +78,7 @@ const Blog: React.FC = () => {
                 </div>
               </div>
             ))}
+          {removedBlog && <RemoveProductModal type="blog" item={removedBlog} />}
         </div>
       </PageLayout>
     </div>

@@ -4,40 +4,61 @@ import React, { useState, useEffect } from "react";
 import ConfirmModal from "./ConfirmModal";
 // types
 import { Product } from "@/interface/product";
+import { BlogType } from "@/interface/blog";
 // redux
 import { useDispatch } from "react-redux";
 import { remove } from "@/store/slice/productSlice";
+import { removeBlog } from "@/store/slice/blogSlice";
 
-interface RemoveProductModalProps {
-  product: Product;
+// interface RemoveProductModalProps {
+//   product: Product;
+// }
+type Item = Product | BlogType;
+
+interface RemoveItemModalProps {
+  item: Item;
+  type: "product" | "blog";
 }
 
-const RemoveProductModal: React.FC<RemoveProductModalProps> = ({ product }) => {
+const RemoveProductModal: React.FC<RemoveItemModalProps> = ({ item, type }) => {
   // redux
   const dispatch = useDispatch();
   // remove modal
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
+  // dynamically title
+  const [modalTitle, setModalTitle] = useState("Remove Item");
 
   useEffect(() => {
     setOpen(true);
-    setModalText(`Are you sure to remove ${product.name} ?`);
-  }, [product]);
+    setModalText(item.name);
+
+    if (type === "product") {
+      setModalTitle("Remove Product");
+    } else {
+      setModalTitle("Remove Blog");
+    }
+  }, [item]);
 
   // confirm to remove user
   const handleOk = () => {
-    setModalText(`Permanently Removing  : ${product.name}`);
+    setModalText(item.name);
     setConfirmLoading(true);
     setTimeout(() => {
-      dispatch(remove(product.key));
+      if (type === "product") {
+        dispatch(remove(item.key));
+      } else {
+        dispatch(removeBlog(item.key));
+      }
       setOpen(false);
       setConfirmLoading(false);
-    }, 1000);
+    }, 500);
   };
+
   return (
     <ConfirmModal
-      title="Remove Product"
+      title={modalTitle}
       open={open}
       onConfirm={handleOk}
       confirmLoading={confirmLoading}

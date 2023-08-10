@@ -16,9 +16,6 @@ const Products: React.FC = () => {
   const products = useAppSelector((state) => state.product);
   // remove product
   const [productRemoved, setProductRemoved] = useState<Product | null>(null);
-  const handleRemoveProduct = (product: Product) => {
-    setProductRemoved(product);
-  };
 
   return (
     <div className=" hide-scrollbar h-full overflow-y-scroll">
@@ -36,7 +33,7 @@ const Products: React.FC = () => {
               <Tooltip title="Remove">
                 <Button
                   type="ghost"
-                  onClick={() => handleRemoveProduct(product)}
+                  onClick={() => setProductRemoved(product)}
                   className="absolute left-3 top-4 hidden group-hover:block"
                   icon={<IoBagRemove className="text-lg text-red-600" />}
                 />
@@ -72,7 +69,7 @@ const Products: React.FC = () => {
               </div>
             </div>
           ))}
-          {productRemoved && <RemoveProductModal product={productRemoved} />}
+          {productRemoved && <RemoveProductModal type="product" item={productRemoved} />}
         </div>
       </PageLayout>
     </div>

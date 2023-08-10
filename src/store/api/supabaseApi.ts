@@ -1,8 +1,8 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import { supabase } from "@/utils/initSupabase";
 
-export const blogsApi = createApi({
-  reducerPath: "blogsApi",
+export const supabaseApi = createApi({
+  reducerPath: "supabaseApi",
   baseQuery: fakeBaseQuery(),
   endpoints: (builder) => ({
     getBlogs: builder.query({
@@ -17,4 +17,4 @@ export const blogsApi = createApi({
   }),
 });
 
-export const { useGetBlogsQuery } = blogsApi;
+export const { useGetBlogsQuery } = supabaseApi;

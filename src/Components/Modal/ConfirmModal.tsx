@@ -1,5 +1,8 @@
 import React from "react";
-import { Modal } from "antd";
+import { Modal, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const antIcon = <LoadingOutlined className=" text-white" spin />;
 
 interface ConfirmModalProps {
   title: string;
@@ -20,14 +23,39 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
 }) => {
   return (
     <Modal
-      title={title}
+      title={<span className="font-Montserrat">{title}</span>}
       open={open}
       onOk={onConfirm}
-      okButtonProps={{ className: "bg-blue-500" }}
       confirmLoading={confirmLoading}
       onCancel={onCancel}
+      footer={[
+        <button
+          key="back"
+          className="mr-1 rounded-md bg-red-700 px-3 py-1 text-white"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>,
+        <button
+          key="submit"
+          className="rounded-md bg-blue-500 px-3 py-1 text-white"
+          onClick={onConfirm}
+          disabled={confirmLoading}
+        >
+          {confirmLoading ? (
+            <span>
+              Deleting
+              <Spin indicator={antIcon} className="ml-1" />
+            </span>
+          ) : (
+            "Confirm"
+          )}
+        </button>,
+      ]}
     >
-      <p className="text-base">{modalText}</p>
+      <p className="inline  font-Montserrat text-base">
+        Are you sure to remove<p className="inline px-2 font-semibold">{modalText}</p>?
+      </p>
     </Modal>
   );
 };
