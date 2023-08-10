@@ -25,7 +25,15 @@ type DataIndex = keyof DataType;
 
 const User: React.FC = () => {
   // redux
+  const [loadingUsers, setLoadingUsers] = useState(true);
   const users = useAppSelector((state) => state.users);
+  useEffect(() => {
+    if (users || usersApi) {
+      setLoadingUsers(false);
+    } else {
+      setLoadingUsers(true);
+    }
+  }, [users]);
 
   const dispatch = useAppDispatch();
   const { data: usersApi } = useGetUsersQuery({});
@@ -247,6 +255,7 @@ const User: React.FC = () => {
         columns={columns}
         dataSource={users}
         onChange={onChange}
+        loading={loadingUsers}
         pagination={{
           pageSize: 5,
         }}
