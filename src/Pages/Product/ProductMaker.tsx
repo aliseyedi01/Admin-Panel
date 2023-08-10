@@ -6,7 +6,7 @@ import { BackPage, PageLayout } from "@/Components";
 import { message } from "antd";
 // redux
 import { useDispatch } from "react-redux/es/exports";
-import { add } from "@/store/slice/productSlice";
+import { addProducts } from "@/store/slice/productSlice";
 // types
 import ProductForm from "@/Components/Products/ProductForm";
 
@@ -17,7 +17,7 @@ const ProductMaker: React.FC = () => {
   const onFinish = (value: any) => {
     const currentDate = new Date();
     const key = currentDate.getTime();
-    dispatch(add({ key, ...value.product }));
+    dispatch(addProducts({ key, ...value.product }));
     message.success(`${value.product.name} added successfully`);
   };
 

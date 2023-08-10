@@ -6,9 +6,10 @@ import { BackPage, PageLayout } from "@/Components";
 import ProductForm from "@/Components/Products/ProductForm";
 // antd
 import { message } from "antd";
+import { editProduct } from "@/store/slice/productSlice";
 // redux
 import { useDispatch } from "react-redux";
-import { edit } from "@/store/slice/productSlice";
+
 // types
 import { useAppSelector } from "@/interface/utils";
 
@@ -22,7 +23,7 @@ const ProductSingle: React.FC = () => {
   // handle submit form
   const onFinish = (value: any) => {
     const updatedProduct = { key: param.ProductId, ...value.product };
-    dispatch(edit(updatedProduct));
+    dispatch(editProduct(updatedProduct));
     message.success(`${value.product.name} edited successfully`);
   };
 

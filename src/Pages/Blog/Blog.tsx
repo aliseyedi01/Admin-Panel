@@ -8,7 +8,7 @@ import RemoveProductModal from "@/Components/Modal/RemoveProductModal";
 import { useAppDispatch, useAppSelector } from "@/interface/utils";
 import { BlogType } from "@/interface/blog";
 import { useGetBlogsQuery } from "@/store/api/supabaseApi";
-import { addBlogs, removeBlog } from "@/store/slice/blogSlice";
+import { addBlogs } from "@/store/slice/blogSlice";
 // antd
 import { Button, Tooltip } from "antd";
 // icon
@@ -16,6 +16,7 @@ import { IoBagRemove } from "react-icons/io5";
 
 const Blog: React.FC = () => {
   const blogs = useAppSelector((state) => state.blog);
+  // console.log("blogs", blogs);
 
   const dispatch = useAppDispatch();
   const { data: blogsApi } = useGetBlogsQuery({});

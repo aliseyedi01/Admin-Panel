@@ -14,7 +14,17 @@ export const supabaseApi = createApi({
         return { data };
       },
     }),
+    getProducts: builder.query({
+      queryFn: async () => {
+        const { data, error } = await supabase.from("products").select();
+        if (error) {
+          console.log("err product supabase api", error);
+          throw error;
+        }
+        return { data };
+      },
+    }),
   }),
 });
 
-export const { useGetBlogsQuery } = supabaseApi;
+export const { useGetBlogsQuery, useGetProductsQuery } = supabaseApi;

@@ -12,7 +12,7 @@ export interface Product {
   image: string;
   sale: boolean;
   new: boolean;
-  gender: Gender;
+  gender: "men" | "women" | "kids";
   priceOff?: number;
   remaining: number;
 }

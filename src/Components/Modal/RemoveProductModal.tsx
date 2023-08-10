@@ -7,12 +7,9 @@ import { Product } from "@/interface/product";
 import { BlogType } from "@/interface/blog";
 // redux
 import { useDispatch } from "react-redux";
-import { remove } from "@/store/slice/productSlice";
+import { removeProduct } from "@/store/slice/productSlice";
 import { removeBlog } from "@/store/slice/blogSlice";
 
-// interface RemoveProductModalProps {
-//   product: Product;
-// }
 type Item = Product | BlogType;
 
 interface RemoveItemModalProps {
@@ -47,7 +44,7 @@ const RemoveProductModal: React.FC<RemoveItemModalProps> = ({ item, type }) => {
     setConfirmLoading(true);
     setTimeout(() => {
       if (type === "product") {
-        dispatch(remove(item.key));
+        dispatch(removeProduct(item.key));
       } else {
         dispatch(removeBlog(item.key));
       }
