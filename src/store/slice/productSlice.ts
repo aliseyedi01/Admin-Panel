@@ -9,7 +9,6 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     addProducts: (state, action) => {
-      console.log("add products", action.payload);
       return [...state, ...action.payload];
     },
     removeProduct: (state, action) => {

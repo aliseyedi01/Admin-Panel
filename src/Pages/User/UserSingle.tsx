@@ -7,7 +7,6 @@ import { Form, InputNumber, Input, Button, Select, message } from "antd";
 // redux
 import { useDispatch } from "react-redux/es/exports";
 import { DataType } from "@/interface/user";
-import { edit } from "@/store/slice/userSlice";
 import { BackPage, PageLayout } from "@/Components";
 import { useAppSelector } from "@/interface/utils";
 
@@ -44,7 +43,7 @@ const UserSingle: React.FC = () => {
   // handle submit form
   const onFinish = (value: any) => {
     const updatedUser = { key: param.userId, ...value.user };
-    dispatch(edit(updatedUser));
+    dispatch(editUser(updatedUser));
     messageApi.open({
       type: "success",
       content: `${value.user.name} edited successfully`,

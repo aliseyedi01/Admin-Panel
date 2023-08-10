@@ -7,7 +7,7 @@ import { IoChevronBack } from "react-icons/io5";
 import { Form, InputNumber, Tooltip, Input, Button, Select, message } from "antd";
 // redux
 import { useDispatch } from "react-redux/es/exports";
-import { add } from "@/store/slice/userSlice";
+import { addUsers } from "@/store/slice/userSlice";
 import { PageLayout } from "@/Components";
 
 const layout = {
@@ -39,7 +39,7 @@ const UserMaker: React.FC = () => {
   const onFinish = (value: any) => {
     const currentDate = new Date();
     const key = currentDate.getTime(); // Generate key based on current date
-    dispatch(add({ key, ...value.user }));
+    dispatch(addUsers({ key, ...value.user }));
     messageApi.open({
       type: "success",
       content: `${value.user.name} added successfully`,

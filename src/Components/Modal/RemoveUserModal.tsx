@@ -1,6 +1,6 @@
 // state management
 import { useDispatch } from "react-redux/es/exports";
-import { remove } from "@/store/slice/userSlice";
+import { removeUser } from "@/store/slice/userSlice";
 import ConfirmModal from "@/Components/Modal/ConfirmModal";
 import React, { useEffect, useState } from "react";
 import { DataType } from "@/interface/user";
@@ -27,7 +27,7 @@ const RemoveUserModal: React.FC<RemoveUserModalProps> = ({ user }) => {
     setModalText(user.name);
     setConfirmLoading(true);
     setTimeout(() => {
-      dispatch(remove(user.key));
+      dispatch(removeUser(user.key));
       setOpen(false);
       setConfirmLoading(false);
     }, 1000);

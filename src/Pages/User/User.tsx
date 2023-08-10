@@ -1,5 +1,5 @@
 // react
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // antd
 import { Space, Table, Avatar, Tag, Tooltip, Button, Input } from "antd";
@@ -11,18 +11,36 @@ import type { InputRef } from "antd";
 import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 // redux
 import { DataType } from "@/interface/user";
-import { useAppSelector } from "@/interface/utils";
+import { useAppDispatch, useAppSelector } from "@/interface/utils";
 // modal
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
 import { NewItem, PageLayout } from "@/Components";
 
 import Highlighter from "react-highlight-words";
+// api
+import { useGetUsersQuery } from "@/store/api/supabaseApi";
+import { addUsers } from "@/store/slice/userSlice";
 
 type DataIndex = keyof DataType;
 
 const User: React.FC = () => {
   // redux
   const users = useAppSelector((state) => state.users);
+
+  const dispatch = useAppDispatch();
+  const { data: usersApi } = useGetUsersQuery({});
+
+  useEffect(() => {
+    if (usersApi) {
+      const newBlogs = usersApi.filter(
+        (usersApi) => !users.some((user) => user.key === usersApi.key),
+      );
+      if (newBlogs.length > 0) {
+        dispatch(addUsers(newBlogs));
+      }
+    }
+  }, []);
+
   // remove user
   const [userRemoved, setUserRemoved] = useState<DataType | null>(null);
   const handleRemoveUser = (user: DataType) => {

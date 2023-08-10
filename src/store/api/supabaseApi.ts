@@ -9,6 +9,7 @@ export const supabaseApi = createApi({
       queryFn: async () => {
         const { data, error } = await supabase.from("blogs").select();
         if (error) {
+          console.log("err blog supabase api", error);
           throw error;
         }
         return { data };
@@ -24,7 +25,17 @@ export const supabaseApi = createApi({
         return { data };
       },
     }),
+    getUsers: builder.query({
+      queryFn: async () => {
+        const { data, error } = await supabase.from("users").select();
+        if (error) {
+          console.log("err user supabase api", error);
+          throw error;
+        }
+        return { data };
+      },
+    }),
   }),
 });
 
-export const { useGetBlogsQuery, useGetProductsQuery } = supabaseApi;
+export const { useGetBlogsQuery, useGetProductsQuery, useGetUsersQuery } = supabaseApi;
