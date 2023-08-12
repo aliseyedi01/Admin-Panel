@@ -1,14 +1,11 @@
 import "./App.css";
-
-import { MainSection, Sidebar } from "./Components";
+import { useLocation } from "react-router-dom";
+import { AdminRoute, AuthRoute } from "./Routes";
 
 function App() {
-  return (
-    <div className="background flex h-screen w-full">
-      <Sidebar />
-      <MainSection />
-    </div>
-  );
+  const location = useLocation();
+
+  return <div>{!location.pathname.includes("/auth") ? <AuthRoute /> : <AdminRoute />}</div>;
 }
 
 export default App;
