@@ -7,6 +7,7 @@ import { ChangeModeBtn } from "..";
 import { FaAlignJustify } from "react-icons/fa";
 import { open } from "@/store/slice/menuSlice";
 import { useAppDispatch, useAppSelector } from "@/interface/utils";
+import AccountBtn from "./AccountBtn";
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +24,7 @@ const Header: React.FC = () => {
       }`}
     >
       <div className=" mx-auto flex h-16 w-full  items-center justify-between px-5 ">
+        {/* collapse menu */}
         <div>
           <Button
             type="ghost"
@@ -31,8 +33,12 @@ const Header: React.FC = () => {
             icon={<FaAlignJustify className="dark:text-white" />}
           />
         </div>
-        <div>
+        {/* Right Header */}
+        <div className="flex items-center gap-2">
+          {/* darkMode */}
           <ChangeModeBtn />
+          {/* Account */}
+          <AccountBtn />
         </div>
       </div>
     </header>
