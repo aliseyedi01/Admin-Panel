@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 const AuthRoute: React.FC = () => {
   return (
-    <div className="h-screen w-full bg-red-400">
+    <div className="surface h-screen w-full">
       <Routes>
         <Route path="/auth/logIn" element={<LogIn />} />
         <Route path="/auth/signUp" element={<SignUp />} />

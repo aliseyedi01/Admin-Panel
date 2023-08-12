@@ -5,7 +5,7 @@ import { AdminRoute, AuthRoute } from "./Routes";
 function App() {
   const location = useLocation();
 
-  return <div>{!location.pathname.includes("/auth") ? <AuthRoute /> : <AdminRoute />}</div>;
+  return <div>{location.pathname.includes("/auth") ? <AuthRoute /> : <AdminRoute />}</div>;
 }
 
 export default App;
