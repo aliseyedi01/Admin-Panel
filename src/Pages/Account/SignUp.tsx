@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
+import { Link } from "react-router-dom";
 
 const SignUp: React.FC = () => {
   const [form] = Form.useForm();
@@ -9,7 +10,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="grid h-full place-content-center">
+    <div className="relative grid h-full place-content-center">
       <Form
         // {...formItemLayout}
         form={form}
@@ -93,17 +94,28 @@ const SignUp: React.FC = () => {
             },
           ]}
         >
-          <Checkbox>
-            I have read the <a href="">agreement</a>
+          <Checkbox className="font-Ubuntu">
+            I have read the <Link to="#">Agreement</Link>
           </Checkbox>
         </Form.Item>
         {/* submit */}
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="bg-blue-600">
-            Register
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="my-1 inline w-full bg-blue-600 text-base"
+          >
+            Create Account
           </Button>
         </Form.Item>
       </Form>
+      {/* redirect */}
+      <p className=" absolute bottom-4 left-20 inline text-center font-Ubuntu text-sm md:left-[42%] md:text-base">
+        Already have a account ?
+        <Link to="/auth/logIn" className=" ml-1 font-semibold text-red-600">
+          Log In
+        </Link>
+      </p>
     </div>
   );
 };
