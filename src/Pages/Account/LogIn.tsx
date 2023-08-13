@@ -1,12 +1,34 @@
 import React from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "@/utils/initSupabase";
 
 const LogIn: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+  const navigate = useNavigate();
+
+  // handle finish
+  const onFinish = async (values: any) => {
+    console.log("Received values LogIn: ", values);
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+
+      if (error) {
+        // Handle the error, e.g., show an error message
+        console.error("Error Login :", error.message);
+      } else {
+        navigate("/");
+        // Handle successful sign in, e.g., redirect the user
+        console.log("Sign in successful!", data);
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+    }
   };
+
   return (
     <div className="relative grid h-full place-content-center">
       <Form
@@ -19,11 +41,8 @@ const LogIn: React.FC = () => {
         <div className="mb-4 text-center">
           <h2 className="font-Ubuntu text-xl font-bold">Log In</h2>
         </div>
-        {/* username */}
-        <Form.Item
-          name="username"
-          rules={[{ required: true, message: "Please input your Username!" }]}
-        >
+        {/* email */}
+        <Form.Item name="email" rules={[{ required: true, message: "Please input your Email!" }]}>
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </Form.Item>
         {/* password */}

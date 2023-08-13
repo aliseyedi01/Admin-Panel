@@ -1,11 +1,11 @@
-import "./App.css";
-import { useLocation } from "react-router-dom";
 import { AdminRoute, AuthRoute } from "./Routes";
+import "./App.css";
+import useAuth from "./Hooks/useAuth";
 
 function App() {
-  const location = useLocation();
+  const { userState: user } = useAuth();
 
-  return <div>{location.pathname.includes("/auth") ? <AuthRoute /> : <AdminRoute />}</div>;
+  return <div>{!user ? <AuthRoute /> : <AdminRoute />}</div>;
 }
 
 export default App;

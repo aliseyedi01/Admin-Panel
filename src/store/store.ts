@@ -8,6 +8,7 @@ import blogReducer from "./slice/blogSlice";
 import darkmodeReducer from "./slice/darkmodeSlice";
 // api
 import { supabaseApi } from "./api/supabaseApi";
+import authSlice from "./slice/authSlice";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     product: productReducer,
     blog: blogReducer,
     darkMode: darkmodeReducer,
+    auth: authSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(supabaseApi.middleware),
 });

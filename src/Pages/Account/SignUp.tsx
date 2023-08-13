@@ -1,12 +1,32 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+import { supabase } from "@/utils/initSupabase";
 
 const SignUp: React.FC = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+  const onFinish = async (values: any) => {
+    console.log("Received values SignUp: ", values);
+    try {
+      // handle signUp supabase
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.signUp({
+        email: values.email,
+        password: values.password,
+      });
+      // Handle the error, e.g., show an error message
+      if (error) {
+        console.error("Error SignUp:", error.message);
+      } else {
+        // Handle successful sign up, e.g., redirect the user
+        console.log("Sign up successful!", user);
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+    }
   };
 
   return (

@@ -37,6 +37,7 @@ const AdminRoute: React.FC = () => {
             <Route path="/blog/:blogId" element={<BlogSingle />} />
             <Route path="/blog/newblog" element={<BlogMaker />} />
             {/* Dashboard */}
+            <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
