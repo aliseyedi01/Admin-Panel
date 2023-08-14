@@ -12,7 +12,7 @@ import { addBlogs } from "@/store/slice/blogSlice";
 // antd
 import { Button, Tooltip } from "antd";
 // icon
-import { IoBagRemove } from "react-icons/io5";
+import { IoTrashOutline, IoDocumentText } from "react-icons/io5";
 
 const Blog: React.FC = () => {
   const blogs = useAppSelector((state) => state.blog);
@@ -43,37 +43,54 @@ const Blog: React.FC = () => {
         <div className="flex h-full flex-wrap dark:text-white">
           {blogs &&
             blogs.map((blog: BlogType) => (
-              <div key={blog.key} className="group relative w-1/2 p-2 md:w-1/3 lg:w-1/4">
+              <div key={blog.key} className="w-1/2 p-2 md:w-1/3 lg:w-1/4">
                 <LazyImage
                   src={blog.coverImage}
                   alt={blog.name}
                   className="relative -mb-[5px] w-full rounded-t-lg"
                   type="blog"
                 />
-                <Tooltip title="Remove">
-                  <Button
-                    type="ghost"
-                    onClick={() => setRemovedBlog(blog)}
-                    className="absolute left-3 top-4 hidden group-hover:block"
-                    icon={<IoBagRemove className="text-lg text-red-600" />}
-                  />
-                </Tooltip>
                 <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
+                  {/* svg image */}
                   <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100  dark:bg-indigo-950"></span>
+                  {/* author image */}
                   <img
                     className="absolute -top-4 left-6 h-8 w-8 rounded-full"
                     src={blog.authorImage}
                     alt={blog.author}
                     loading="lazy"
                   />
+                  {/* title blog */}
                   <Link
                     to={`/blog/${blog.key}`}
                     className="text-gray-900 no-underline dark:text-gray-400"
                   >
                     <p className="line-clamp-1 px-2 pt-7 font-Ubuntu">{blog.name}</p>
                   </Link>
+                  {/* info blog */}
                   <div className="flex items-center justify-between px-2 py-2 font-Lilita text-base">
-                    <p className="text-blue-700 dark:text-blue-500">{blog.datePublished}</p>
+                    {/* remove & edit blog */}
+                    <div>
+                      {/* Remove */}
+                      <Tooltip title="Remove">
+                        <Button
+                          type="ghost"
+                          onClick={() => setRemovedBlog(blog)}
+                          className=""
+                          icon={<IoTrashOutline className="text-lg text-red-600" />}
+                        />
+                      </Tooltip>
+                      {/* Edit */}
+                      <Tooltip title="Edit">
+                        <Link to={`/blog/${blog.key}`}>
+                          <Button
+                            type="ghost"
+                            icon={<IoDocumentText className="border-0 text-lg text-red-600" />}
+                          />
+                        </Link>
+                      </Tooltip>
+                    </div>
+                    {/* category blog */}
                     <p className="text-red-700 dark:text-red-400">{blog.category}</p>
                   </div>
                 </div>
