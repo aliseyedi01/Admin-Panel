@@ -1,5 +1,6 @@
 // hook
 import useHideClickOutside from "@/Hooks/useHideClickOutside";
+import { useAppSelector } from "@/interface/utils";
 import { supabase } from "@/utils/initSupabase";
 // react
 import React, { useState, useRef } from "react";
@@ -14,6 +15,9 @@ const AccountBtn: React.FC = () => {
     setModalAccount((prevModalAccount) => !prevModalAccount);
   };
   const navigate = useNavigate();
+  // get user
+  const { user } = useAppSelector((state) => state.auth);
+  const username = user.email.split("@")[0];
 
   // Create a ref for the modal element
   const modalRef = useRef(null);
@@ -50,8 +54,8 @@ const AccountBtn: React.FC = () => {
           ref={modalRef}
           className="absolute right-5 top-16 h-max w-40 flex-col rounded-md border-[1px] border-indigo-600 bg-blue-200 p-2 text-center font-Montserrat font-bold  text-black"
         >
-          <p className="flex w-32 items-center gap-2 overflow-hidden truncate py-2 pl-5">
-            Ali Seyedi
+          <p className="flex w-32 items-center gap-2 overflow-hidden truncate py-2 pl-4">
+            Hi {username}
           </p>
           <hr className="my-2 h-[1.5px] rounded-full bg-indigo-600" />
           <button className="flex items-center justify-start gap-3 py-2 pl-4 pr-10 hover:rounded-md hover:bg-blue-400">

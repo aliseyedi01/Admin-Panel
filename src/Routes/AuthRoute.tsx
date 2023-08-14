@@ -6,6 +6,7 @@ const AuthRoute: React.FC = () => {
   return (
     <div className="surface h-screen w-full">
       <Routes>
+        <Route path="*" element={<LogIn />} />
         <Route path="/auth/logIn" element={<LogIn />} />
         <Route path="/auth/signUp" element={<SignUp />} />
       </Routes>

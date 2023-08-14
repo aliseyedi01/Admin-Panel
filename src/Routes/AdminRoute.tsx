@@ -23,7 +23,7 @@ const AdminRoute: React.FC = () => {
         <Header />
         <Routes>
           <Route>
-            <Route path="/*" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
             {/* Product */}
             <Route path="/products" element={<Products />} />
             <Route path="/product/:ProductId" element={<ProductSingle />} />
