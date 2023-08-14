@@ -23,6 +23,7 @@ import { addUsers } from "@/store/slice/userSlice";
 
 type DataIndex = keyof DataType;
 
+// component users
 const User: React.FC = () => {
   // redux
   const [loadingUsers, setLoadingUsers] = useState(true);
@@ -35,6 +36,7 @@ const User: React.FC = () => {
     }
   }, [users]);
 
+  // get user of rtk query
   const dispatch = useAppDispatch();
   const { data: usersApi } = useGetUsersQuery({});
 
@@ -47,7 +49,7 @@ const User: React.FC = () => {
         dispatch(addUsers(newBlogs));
       }
     }
-  }, []);
+  }, [usersApi]);
 
   // remove user
   const [userRemoved, setUserRemoved] = useState<DataType | null>(null);

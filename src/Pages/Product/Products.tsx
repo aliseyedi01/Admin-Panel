@@ -32,7 +32,7 @@ const Products: React.FC = () => {
         dispatch(addProducts(newProducts));
       }
     }
-  }, []);
+  }, [productsApi]);
 
   // remove product
   const [productRemoved, setProductRemoved] = useState<Product | null>(null);

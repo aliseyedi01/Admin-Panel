@@ -31,7 +31,7 @@ const Blog: React.FC = () => {
       }
     }
     // console.log("render useEffect");
-  }, []);
+  }, [blogsApi]);
 
   // remove blog
   const [removedBlog, setRemovedBlog] = useState<BlogType | null>(null);
