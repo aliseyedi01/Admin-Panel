@@ -5,7 +5,7 @@ import { addUser } from "@/store/slice/authSlice";
 import { User } from "@supabase/supabase-js";
 
 interface AuthData {
-  user: User;
+  user: null;
   isLoading: boolean;
 }
 
@@ -34,7 +34,9 @@ const useAuth = (): AuthData => {
       setIsLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    // return () => subscription.unsubscribe();
+
+    return () => subscription.data.subscription.unsubscribe();
   }, [dispatch]);
 
   return { user, isLoading };

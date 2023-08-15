@@ -132,7 +132,7 @@ const User: React.FC = () => {
       <SearchOutlined style={{ color: filtered ? "#1677ff" : undefined }} />
     ),
     onFilter: (value, record) =>
-      record[dataIndex]
+      (record[dataIndex] as string)
         .toString()
         .toLowerCase()
         .includes((value as string).toLowerCase()),

@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from "react";
+import { useEffect, RefObject } from "react";
 
 function useHideClickOutside<T extends HTMLElement>(ref: RefObject<T>, handler: () => void): void {
   useEffect(() => {

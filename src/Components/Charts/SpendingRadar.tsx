@@ -15,10 +15,10 @@ const SpendingRadar: React.FC = () => {
       polar: true,
       styledMode: true,
       events: {
-        mousewheel: function (e) {
+        mousewheel: function (e: React.WheelEvent) {
           e.preventDefault();
         },
-        DOMMouseScroll: function (e) {
+        DOMMouseScroll: function (e: React.MouseEvent) {
           e.preventDefault();
         },
       },

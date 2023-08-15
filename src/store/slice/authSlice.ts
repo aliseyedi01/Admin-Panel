@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { User } from "@supabase/supabase-js";
 
-const initialState = {
+interface AuthState {
+  user: User | null;
+  isLoading: boolean;
+}
+
+const initialState: AuthState = {
   user: null,
   isLoading: false,
 };
