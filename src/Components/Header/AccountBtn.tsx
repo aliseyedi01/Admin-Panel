@@ -17,7 +17,8 @@ const AccountBtn: React.FC = () => {
   const navigate = useNavigate();
   // get user
   const { user } = useAppSelector((state) => state.auth);
-  const username = user.email.split("@")[0];
+  // const username = user.email.split("@")[0];
+  const username = user?.email?.split("@")[0] ?? "";
 
   // Create a ref for the modal element
   const modalRef = useRef(null);

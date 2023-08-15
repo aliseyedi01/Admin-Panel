@@ -5,7 +5,7 @@ import { addUser } from "@/store/slice/authSlice";
 import { User } from "@supabase/supabase-js";
 
 interface AuthData {
-  user: null;
+  user: User | null;
   isLoading: boolean;
 }
 
