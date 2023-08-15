@@ -44,7 +44,7 @@ const AccountBtn: React.FC = () => {
   return (
     <>
       <img
-        src="https://minimal-kit-react.vercel.app/assets/images/avatars/avatar_default.jpg"
+        src="https://tsnfxzvybnnhqwjcqvej.supabase.co/storage/v1/object/public/users/3.webp"
         alt="account"
         className="relative h-10 w-10 cursor-pointer rounded-full"
         onClick={toggleModal}
