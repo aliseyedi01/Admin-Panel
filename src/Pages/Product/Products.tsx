@@ -58,7 +58,7 @@ const Products: React.FC = () => {
                 <LazyImage
                   src={product.image}
                   alt={product.name}
-                  className="-mb-[5px] w-full rounded-t-lg "
+                  className="-mb-[5px] h-44 w-full rounded-t-lg md:h-52 "
                   type="product"
                 />
                 {/* below section */}

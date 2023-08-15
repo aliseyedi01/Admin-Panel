@@ -4,7 +4,7 @@ import useAuth from "./Hooks/useAuth";
 
 function App() {
   const { user } = useAuth();
-  console.log("user exist", user);
+  // console.log("user exist", user);
 
   return <div>{user ? <AdminRoute /> : <AuthRoute />}</div>;
 }

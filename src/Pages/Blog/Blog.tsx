@@ -43,11 +43,11 @@ const Blog: React.FC = () => {
         <div className="flex h-full flex-wrap dark:text-white">
           {blogs &&
             blogs.map((blog: BlogType) => (
-              <div key={blog.key} className="w-1/2 p-2 md:w-1/3 lg:w-1/4">
+              <div key={blog.key} className="w-full p-2 md:w-1/3 lg:w-1/4">
                 <LazyImage
                   src={blog.coverImage}
                   alt={blog.name}
-                  className="relative -mb-[5px] w-full rounded-t-lg"
+                  className="relative -mb-[5px] h-44 w-full rounded-t-lg md:h-52"
                   type="blog"
                 />
                 <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
