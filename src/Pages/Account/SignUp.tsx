@@ -76,6 +76,7 @@ const SignUp: React.FC = () => {
               required: true,
               message: "Please input your password!",
             },
+            { min: 6, message: "Password must have a minimum length of 6" },
           ]}
           hasFeedback
         >

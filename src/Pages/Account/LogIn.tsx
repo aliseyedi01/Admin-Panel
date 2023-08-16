@@ -48,7 +48,10 @@ const LogIn: React.FC = () => {
         {/* password */}
         <Form.Item
           name="password"
-          rules={[{ required: true, message: "Please input your Password!" }]}
+          rules={[
+            { required: true, message: "Please input your Password!" },
+            { min: 6, message: "Password must have a minimum length of 6" },
+          ]}
         >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
