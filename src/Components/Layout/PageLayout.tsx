@@ -66,7 +66,7 @@ const PageLayout: React.FC<PropsWithChildren> = ({ children }) => {
     document.title = pageTitle;
   }, [pathSegments]);
 
-  return <section className="min-h-screen p-5 pt-20">{children}</section>;
+  return <section className="min-h-screen w-full p-5 pt-20">{children}</section>;
 };
 
 export default PageLayout;

@@ -54,7 +54,7 @@ const Sidebar: React.FC = () => {
     <>
       {/* background blur */}
       <div
-        className={`fixed left-0 top-0 z-10  h-full w-full bg-slate-600/[.2] backdrop-blur-sm  ${
+        className={`fixed left-0 top-0 z-10 h-full w-full bg-slate-600/[.2] backdrop-blur-sm  ${
           menuOpen ? "" : "hidden"
         }`}
         onClick={() => dispatch(close())}
@@ -64,7 +64,7 @@ const Sidebar: React.FC = () => {
         ref={sidebarRef}
         className={`surface flex h-full flex-col items-center gap-4 py-4 transition-all duration-500   ${
           collapsed ? "w-20" : "w-72"
-        } ${menuOpen ? "absolute z-50 w-48" : "hidden md:flex"}`}
+        } ${menuOpen ? "absolute z-50 w-[200px]" : "hidden md:flex"}`}
       >
         {/* collapse button & panel's admin */}
         <Button

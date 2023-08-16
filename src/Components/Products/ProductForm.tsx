@@ -50,6 +50,7 @@ const ProductForm: React.FC<{
       name="nest-messages"
       onFinish={onFinish}
       style={{ maxWidth: 600 }}
+      className="overflow-x-hidden"
       validateMessages={validateMessages}
       initialValues={initialvalue}
     >

@@ -43,19 +43,21 @@ const Blog: React.FC = () => {
         <div className="flex h-full flex-wrap dark:text-white">
           {blogs &&
             blogs.map((blog: BlogType) => (
-              <div key={blog.key} className="w-full p-2 md:w-1/3 lg:w-1/4">
-                <LazyImage
-                  src={blog.coverImage}
-                  alt={blog.name}
-                  className="relative -mb-[5px] h-44 w-full rounded-t-lg md:h-52"
-                  type="blog"
-                />
+              <div key={blog.key} className="group w-1/2 p-2 md:w-1/3 lg:w-1/4">
+                <div className="h-44 w-full overflow-hidden rounded-t-lg">
+                  <LazyImage
+                    src={blog.coverImage}
+                    alt={blog.name}
+                    className="relative -mb-[5px] h-44 w-full rounded-t-lg duration-200 group-hover:scale-110 md:h-52"
+                    type="blog"
+                  />
+                </div>
                 <div className="relative rounded-b-md bg-slate-100 dark:bg-indigo-950">
                   {/* svg image */}
                   <span className="svg-custom absolute -top-[50px] left-0 h-24 w-20 bg-slate-100  dark:bg-indigo-950"></span>
                   {/* author image */}
                   <img
-                    className="absolute -top-4 left-6 h-8 w-8 rounded-full"
+                    className="absolute -top-[14px] left-7 h-6 w-6 rounded-full md:-top-4  md:left-6 md:h-8 md:w-8"
                     src={blog.authorImage}
                     alt={blog.author}
                     loading="lazy"
@@ -63,21 +65,21 @@ const Blog: React.FC = () => {
                   {/* title blog */}
                   <Link
                     to={`/blog/${blog.key}`}
-                    className="text-gray-900 no-underline dark:text-gray-400"
+                    className="text-sm text-gray-900 no-underline dark:text-gray-400 md:text-base"
                   >
                     <p className="line-clamp-1 px-2 pt-7 font-Ubuntu">{blog.name}</p>
                   </Link>
                   {/* info blog */}
-                  <div className="flex items-center justify-between px-2 py-2 font-Lilita text-base">
+                  <div className="flex items-center justify-between p-1 font-Lilita text-base md:p-2">
                     {/* remove & edit blog */}
-                    <div>
+                    <div className="">
                       {/* Remove */}
                       <Tooltip title="Remove">
                         <Button
                           type="ghost"
                           onClick={() => setRemovedBlog(blog)}
                           className=""
-                          icon={<IoTrashOutline className="text-lg text-red-600" />}
+                          icon={<IoTrashOutline className="text-base text-red-600 md:text-lg" />}
                         />
                       </Tooltip>
                       {/* Edit */}
@@ -85,13 +87,17 @@ const Blog: React.FC = () => {
                         <Link to={`/blog/${blog.key}`}>
                           <Button
                             type="ghost"
-                            icon={<IoDocumentText className="border-0 text-lg text-red-600" />}
+                            icon={
+                              <IoDocumentText className="border-0 text-base text-red-600 md:text-lg" />
+                            }
                           />
                         </Link>
                       </Tooltip>
                     </div>
                     {/* category blog */}
-                    <p className="text-red-700 dark:text-red-400">{blog.category}</p>
+                    <p className="text-sm text-red-700 dark:text-red-400 md:text-base">
+                      {blog.category}
+                    </p>
                   </div>
                 </div>
               </div>

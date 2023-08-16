@@ -258,10 +258,11 @@ const User: React.FC = () => {
         dataSource={users}
         onChange={onChange}
         loading={loadingUsers}
+        scroll={{ x: 600 }}
         pagination={{
           pageSize: 5,
         }}
-        className="!dark:text-white dark:bg-slate-400"
+        className="!dark:text-white"
       />
       {userRemoved && <RemoveUserModal user={userRemoved} />}
     </PageLayout>
