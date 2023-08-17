@@ -1,6 +1,8 @@
-import { useAppSelector } from "@/interface/utils";
+// react
 import React, { PropsWithChildren, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+// types
+import { useAppSelector } from "@/interface/utils";
 
 const PageLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const location = useLocation();

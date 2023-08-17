@@ -1,6 +1,9 @@
+// react
 import React from "react";
+// chart
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+// types
 import { useAppSelector } from "@/interface/utils";
 
 const UserBar: React.FC = () => {

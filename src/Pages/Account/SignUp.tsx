@@ -1,6 +1,9 @@
+// react
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+// antd
+import { Button, Checkbox, Form, Input } from "antd";
+// supabase
 import { supabase } from "@/utils/initSupabase";
 
 const SignUp: React.FC = () => {

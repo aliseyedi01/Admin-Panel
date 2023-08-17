@@ -1,5 +1,8 @@
+// react
 import React from "react";
+// antd
 import { Modal, Spin } from "antd";
+// icons
 import { LoadingOutlined } from "@ant-design/icons";
 
 const antIcon = <LoadingOutlined className=" text-white" spin />;

@@ -5,8 +5,11 @@ import { Button } from "antd";
 // icons
 import { ChangeModeBtn } from "..";
 import { FaAlignJustify } from "react-icons/fa";
+// redux
 import { open } from "@/store/slice/menuSlice";
+// types
 import { useAppDispatch, useAppSelector } from "@/interface/utils";
+// components
 import AccountBtn from "./AccountBtn";
 
 const Header: React.FC = () => {

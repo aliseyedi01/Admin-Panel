@@ -1,7 +1,11 @@
+// react
 import React from "react";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+// icons
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+// antd
+import { Button, Checkbox, Form, Input } from "antd";
+// supabase
 import { supabase } from "@/utils/initSupabase";
 
 const LogIn: React.FC = () => {

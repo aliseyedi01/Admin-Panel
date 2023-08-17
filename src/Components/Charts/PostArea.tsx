@@ -1,6 +1,9 @@
+// react
 import React from "react";
+// charts
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+// types
 import { useAppSelector } from "@/interface/utils";
 
 const PostArea: React.FC = () => {

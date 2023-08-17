@@ -1,6 +1,8 @@
+// react
 import React from "react";
-import { LogIn, SignUp } from "@/Pages";
 import { Route, Routes } from "react-router-dom";
+// components
+import { LogIn, SignUp } from "@/Pages";
 
 const AuthRoute: React.FC = () => {
   return (

@@ -1,6 +1,8 @@
+// react
 import React, { useState, useRef, useEffect } from "react";
 import blog from "@assets/placeholder/blog.jpg";
 import product from "@assets/placeholder/product.png";
+// types
 type Props = {
   src: string;
   className: string;

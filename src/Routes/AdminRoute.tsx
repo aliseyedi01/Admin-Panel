@@ -1,4 +1,7 @@
+// react
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+// component
 import {
   Blog,
   BlogMaker,
@@ -12,7 +15,6 @@ import {
   UserMaker,
   UserSingle,
 } from "@/Pages";
-import { Route, Routes } from "react-router-dom";
 import { Header, Sidebar } from "@/Components";
 
 const AdminRoute: React.FC = () => {

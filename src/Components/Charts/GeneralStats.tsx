@@ -1,9 +1,12 @@
+// react
 import React from "react";
+// component
 import { CountUp } from "@/Components";
 import UserBar from "./UserBar";
 import PostArea from "./PostArea";
 import ProductSpline from "./ProductSpline";
 import CircleOrder from "./CircleOrder";
+// icons
 import {
   AiOutlineTeam,
   AiOutlineShoppingCart,

@@ -1,8 +1,11 @@
-// state management
-import { useDispatch } from "react-redux/es/exports";
-import { removeUser } from "@/store/slice/userSlice";
-import ConfirmModal from "@/Components/Modal/ConfirmModal";
+// react
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux/es/exports";
+// redux
+import { removeUser } from "@/store/slice/userSlice";
+// component
+import ConfirmModal from "@/Components/Modal/ConfirmModal";
+// types
 import { DataType } from "@/interface/user";
 
 interface RemoveUserModalProps {

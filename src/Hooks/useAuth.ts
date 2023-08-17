@@ -1,8 +1,12 @@
+// react
 import { useEffect, useState } from "react";
-import { supabase } from "@/utils/initSupabase";
-import { useAppDispatch } from "@/interface/utils";
-import { addUser } from "@/store/slice/authSlice";
+// supabase
 import { User } from "@supabase/supabase-js";
+import { supabase } from "@/utils/initSupabase";
+// types
+import { useAppDispatch } from "@/interface/utils";
+// redux
+import { addUser } from "@/store/slice/authSlice";
 
 interface AuthData {
   user: User | null;

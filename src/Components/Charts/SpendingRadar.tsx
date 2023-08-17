@@ -1,11 +1,12 @@
+// react
 import React from "react";
+// chart
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import { useAppSelector } from "@/interface/utils";
-
 import HighchartsMore from "highcharts/highcharts-more";
-
 HighchartsMore(Highcharts);
+// types
+import { useAppSelector } from "@/interface/utils";
 
 const SpendingRadar: React.FC = () => {
   const isDarkModeEnabled = useAppSelector((state) => state.darkMode.isDarkModeEnabled);
