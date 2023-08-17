@@ -12,10 +12,10 @@ import { FaUserEdit, FaUserMinus } from "react-icons/fa";
 // redux
 import { DataType } from "@/interface/user";
 import { useAppDispatch, useAppSelector } from "@/interface/utils";
-// modal
+// components
 import RemoveUserModal from "@/Components/Modal/RemoveUserModal";
 import { NewItem, PageLayout } from "@/Components";
-
+// chart
 import Highlighter from "react-highlight-words";
 // api
 import { useGetUsersQuery } from "@/store/api/supabaseApi";
@@ -94,6 +94,7 @@ const User: React.FC = () => {
             onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
             icon={<SearchOutlined />}
             size="small"
+            className="bg-red-400"
             style={{ width: 90 }}
           >
             Search
@@ -106,8 +107,9 @@ const User: React.FC = () => {
             Reset
           </Button>
           <Button
-            type="link"
             size="small"
+            type="primary"
+            className="!bg-blue-500"
             onClick={() => {
               confirm({ closeDropdown: false });
               setSearchText((selectedKeys as string[])[0]);

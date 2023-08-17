@@ -11,7 +11,7 @@ const PageLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const blogs = useAppSelector((state) => state.blog);
 
   const getPageTitle = () => {
-    let pageTitle = "Page Not Found";
+    let pageTitle = "Admin Panel";
 
     const segment1 = pathSegments[1];
     const segment2 = pathSegments[2];
